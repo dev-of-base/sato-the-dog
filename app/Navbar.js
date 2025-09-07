@@ -1,0 +1,84 @@
+"use client";
+
+import { useState } from 'react';
+
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const menuItems = [
+    { href: "#find-sato", label: "Find Sato" },
+    { href: "#sato-nfts", label: "Sato NFTs" },
+    { href: "#art", label: "Art" },
+    { href: "#woof-dao", label: "Woof DAO" },
+    { href: "#faqs", label: "FAQs" }
+  ];
+
+  return (
+    <>
+      <nav className="font-inter fixed top-2 lg:top-6 left-1/2 transform -translate-x-1/2 z-50">
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex px-8 py-3 gap-6 items-center bg-white/70 backdrop-blur-md rounded-2xl border border-gray-200 shadow-lg">
+          {menuItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-gray-800 font-medium hover:text-blue-600 transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+
+        {/* Mobile Navigation - Burger Button */}
+        <div className="lg:hidden">
+          <div className="px-4 py-3 flex justify-center">
+            <button
+              onClick={toggleMenu}
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Toggle menu"
+            >
+              <div className="w-6 h-6 flex flex-col justify-center items-center">
+                <span className={`block w-5 h-0.5 bg-gray-800 transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-0.5' : '-translate-y-1'}`}></span>
+                <span className={`block w-5 h-0.5 bg-gray-800 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                <span className={`block w-5 h-0.5 bg-gray-800 transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-0.5' : 'translate-y-1'}`}></span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Dropdown Menu - Outside of nav container */}
+      <div 
+        className={`lg:hidden fixed top-16 left-0 right-0 w-full bg-[#FFFF00]/50 backdrop-blur-md border-b border-gray-200 shadow-lg z-40 transition-all duration-300 ease-in-out ${
+          isMenuOpen 
+            ? 'opacity-100 transform translate-y-0' 
+            : 'opacity-0 transform -translate-y-4 pointer-events-none'
+        }`}
+      >
+        <div className="py-2">
+          {menuItems.map((item, index) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsMenuOpen(false)}
+              className={`block w-full py-3 text-center text-gray-800 font-medium hover:text-blue-600 hover:bg-gray-50 transition-all duration-200 ${
+                isMenuOpen 
+                  ? 'transform translate-x-0 opacity-100' 
+                  : 'transform translate-x-4 opacity-0'
+              }`}
+              style={{
+                transitionDelay: isMenuOpen ? `${index * 50}ms` : '0ms'
+              }}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
