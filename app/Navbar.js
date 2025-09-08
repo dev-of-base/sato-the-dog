@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="font-inter fixed top-2 lg:top-6 left-1/2 transform -translate-x-1/2 z-50">
+      <nav className="font-inter relative top-2 lg:fixed lg:top-6 left-1/2 transform -translate-x-1/2 z-50">
         {/* Desktop Navigation */}
         <div className="hidden lg:flex px-8 py-3 gap-6 items-center bg-white/70 backdrop-blur-md rounded-2xl border border-gray-200 shadow-lg">
           {menuItems.map((item) => (
@@ -53,7 +53,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu - Outside of nav container */}
       <div 
-        className={`lg:hidden fixed top-16 left-0 right-0 w-full bg-[#FFFF00]/50 backdrop-blur-md border-b border-gray-200 shadow-lg z-40 transition-all duration-300 ease-in-out ${
+        className={`lg:hidden absolute top-16 left-0 right-0 w-full bg-[#FFFF00]/50 backdrop-blur-md border-b border-gray-200 shadow-lg z-40 transition-all duration-300 ease-in-out ${
           isMenuOpen 
             ? 'opacity-100 transform translate-y-0' 
             : 'opacity-0 transform -translate-y-4 pointer-events-none'

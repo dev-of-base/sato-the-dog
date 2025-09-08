@@ -18,15 +18,25 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center pt-24">
       <div className="text-center">
-        <h1 className="font-cherry-bomb-one text-5xl sm:text-8xl lg:text-9xl text-gray-800 mb-4 drop-shadow-lg">
+        <h1 className="font-cherry-bomb-one text-6xl sm:text-8xl lg:text-9xl text-gray-800 mb-4 drop-shadow-lg">
           Sato the Dog
         </h1>
+        <div className="flex items-baseline justify-center gap-2 max-w-2xl mx-auto">
+          <span className="font-inter text-md md:text-2xl text-gray-900">Built on</span>
+          <Image
+            src="/assets/Base_lockup_2color.png"
+            alt="Base"
+            width={140}
+            height={35}
+            className="h-[20px] sm:h-[25px] md:h-[30px] lg:h-[35px] w-auto"
+          />
+        </div>
         <Image
           src="/assets/sato.png"
           alt="Sato the Dog"
           width={550}
           height={550}
-          className="mx-auto px-16"
+          className="mx-auto px-16 pt-16"
         />
       </div>
       {/* Social Links */}
@@ -55,9 +65,18 @@ export default function Home() {
       </div>
       {/* Trade Sato */}
       <section className="w-full flex flex-col items-center justify-center bg-gray-800 py-6 px-2">
-        <h2 className="font-cherry-bomb-one text-4xl sm:text-5xl lg:text-6xl text-gray-100 my-4 drop-shadow-lg">
-          Trade SATO
-        </h2>
+        <div className="flex items-center justify-center gap-4 my-4">
+          <h2 className="font-cherry-bomb-one text-4xl sm:text-5xl lg:text-6xl text-gray-100 drop-shadow-lg m-0">
+            Trade SATO
+          </h2>
+          <Image
+            src="/assets/sato-logo.jpg"
+            alt="Sato the Dog Logo"
+            width={60}
+            height={60}
+            className="ml-2 rounded-full"
+          />
+        </div>
         <ContractAddress />
       </section>
       {/* Artwork Collage */}

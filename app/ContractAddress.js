@@ -17,6 +17,7 @@ export default function ContractAddress() {
   };
 
   return (
+    <>
       <div className="bg-white border-2 border-gray-200 rounded-2xl mt-4 p-2 sm:p-4 md:p-6 shadow-xl max-w-2xl w-full">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-2">
           <div className="flex-1 min-w-0 w-full">
@@ -60,12 +61,74 @@ export default function ContractAddress() {
             rel="noopener noreferrer"
             className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-2 px-4 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200 flex items-center gap-3 text-lg"
           >
+            <img
+              src="/assets/uniswap-uni-logo.svg"
+              alt="Uniswap Logo"
+              className="h-6 w-6 brightness-0 invert"
+            />
             Buy on Uniswap
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </a>
         </div>
-      </div>      
+      </div>
+      <div className="mt-4 p-4 md:p-6 w-full">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8">
+          <a
+            href="https://www.coingecko.com/en/coins/sato-the-dog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform duration-200 flex-shrink-0"
+            title="CoinGecko"
+          >
+            <img 
+              src="/assets/coingecko.svg" 
+              alt="CoinGecko" 
+              className="h-8 w-auto md:h-10"
+            />
+          </a>
+          <a
+            href="https://coinmarketcap.com/currencies/sato-the-dog/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform duration-200 flex-shrink-0"
+            title="CoinMarketCap"
+          >
+            <img 
+              src="/assets/coinmarketcap.svg" 
+              alt="CoinMarketCap" 
+              className="h-8 w-auto md:h-10"
+            />
+          </a>
+          <a
+            href="https://dexscreener.com/base/0xddca7b95eb287493f901ae3ca747b0707c6ef7cd"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform duration-200 flex-shrink-0"
+            title="DexScreener"
+          >
+            <img 
+              src="/assets/dexscreener.avif" 
+              alt="DexScreener" 
+              className="h-8 w-auto md:h-10"
+            />
+          </a>
+          <a
+            href="https://www.dextools.io/app/en/token/satobase"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform duration-200 flex-shrink-0"
+            title="DexTools"
+          >
+            <img 
+              src="/assets/dextools.avif" 
+              alt="DexTools" 
+              className="h-8 w-auto md:h-10"
+            />
+          </a>
+        </div>
+      </div>
+      </>
   );
 }
