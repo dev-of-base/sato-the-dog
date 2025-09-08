@@ -10,11 +10,11 @@ export default function Navbar() {
   };
 
   const menuItems = [
-    { href: "#find-sato", label: "Find Sato" },
-    { href: "#sato-nfts", label: "Sato NFTs" },
-    { href: "#art", label: "Art" },
-    { href: "#woof-dao", label: "Woof DAO" },
-    { href: "#faqs", label: "FAQs" }
+    { href: "#about-sato", label: "About Sato", target: "_self" },
+    { href: "#sato-nfts", label: "Sato NFTs", target: "_self" },
+    { href: "#gallery", label: "Sato Gallery", target: "_self" },
+    { href: "/SATO_WhitePaper_CommunityTakeover.pdf", label: "Whitepaper", target: "_blank" },
+    { href: "#faqs", label: "FAQs", target: "_self" }
   ];
 
   return (
@@ -26,6 +26,7 @@ export default function Navbar() {
             <a
               key={item.href}
               href={item.href}
+              target={item.target}
               className="text-gray-800 font-medium hover:text-blue-600 transition-colors"
             >
               {item.label}

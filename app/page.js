@@ -2,6 +2,7 @@ import Image from "next/image";
 import ContractAddress from "./ContractAddress";
 import ArtworkCollage from "./ArtworkCollage";
 import FAQs from "./FAQs";
+import About from "./About";
 import { 
   SiTelegram, 
   SiX, 
@@ -16,7 +17,7 @@ import {
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center pt-24">
+    <main className="flex flex-col items-center justify-center pt-6 md:pt-16 lg:pt-24">
       <div className="text-center">
         <h1 className="font-cherry-bomb-one text-6xl sm:text-8xl lg:text-9xl text-gray-800 mb-4 drop-shadow-lg">
           Sato the Dog
@@ -31,6 +32,26 @@ export default function Home() {
             className="h-[20px] sm:h-[25px] md:h-[30px] lg:h-[35px] w-auto"
           />
         </div>
+        <div className="flex flex-row items-center justify-center gap-4 my-8 md:my-12 lg:my-16 flex-wrap">
+            <a
+                href={`https://x.com/Satothedog`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-button bg-white"
+                title="X (Twitter)"
+              >
+                <SiX size={36} color="default" />
+            </a>
+            <a
+                href={`https://t.me/Satothedogcto`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-button bg-white"
+                title="Telegram"
+              >
+                <SiTelegram size={36} color="default" />
+            </a>
+          </div>
         <Image
           src="/assets/sato.png"
           alt="Sato the Dog"
@@ -39,30 +60,8 @@ export default function Home() {
           className="mx-auto px-16 pt-16"
         />
       </div>
-      {/* Social Links */}
-      <div className="w-full flex items-center justify-center h-16 bg-white">
-          <h2 className="font-inter text-lg md:text-xl lg:text-2xl me-12 text-gray-800 drop-shadow-md">Discover Sato</h2>
-          <div className="flex flex-row items-center justify-center gap-4 my-3 flex-wrap">
-            <a
-                href={`https://x.com/Satothedog`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-button bg-slate-900"
-                title="X (Twitter)"
-              >
-                <SiX size={20} />
-            </a>
-            <a
-                href={`https://t.me/Satothedogcto`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-button bg-blue-400"
-                title="Telegram"
-              >
-                <SiTelegram size={20} />
-            </a>
-          </div>
-      </div>
+      {/* About Sato */}
+      <About />
       {/* Trade Sato */}
       <section className="w-full flex flex-col items-center justify-center bg-gray-800 py-6 px-2">
         <div className="flex items-center justify-center gap-4 my-4">
@@ -80,7 +79,7 @@ export default function Home() {
         <ContractAddress />
       </section>
       {/* Artwork Collage */}
-      <section className="w-full bg-[#0052FF] py-16 px-4">
+      <section id="gallery" className="w-full bg-[#0052FF] py-16 px-4">
       <ArtworkCollage />
       </section>
       {/* FAQs */}

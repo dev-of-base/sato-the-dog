@@ -1,6 +1,7 @@
 
 import "./globals.css";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import { Cherry_Bomb_One, Inter } from "next/font/google";
 
 const inter = Inter({
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} ${cherryBombOne.variable} antialiased`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

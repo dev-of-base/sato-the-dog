@@ -102,6 +102,19 @@ export default function ContractAddress() {
             />
           </a>
           <a
+            href="https://www.geckoterminal.com/ru/base/pools/0xd17a8609b5d95a5f49b290c4d787949bfec5279e"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform duration-200 flex-shrink-0"
+            title="GeckoTerminal"
+          >
+            <img 
+              src="/assets/geckoterminal.png" 
+              alt="GeckoTerminal" 
+              className="h-8 w-auto md:h-10"
+            />
+          </a>
+          <a
             href="https://dexscreener.com/base/0xddca7b95eb287493f901ae3ca747b0707c6ef7cd"
             target="_blank"
             rel="noopener noreferrer"
