@@ -39,7 +39,7 @@ export default function Navbar() {
   ];
 
   return (
-    <>
+    <div className="w-full max-w-full overflow-hidden">
       <nav className="font-inter relative top-2 lg:fixed lg:top-6 left-1/2 transform -translate-x-1/2 z-50">
         {/* Desktop Navigation */}
         <div className="hidden lg:flex px-8 py-3 gap-6 items-center bg-white/70 backdrop-blur-md rounded-2xl border border-gray-200 shadow-lg">
@@ -76,33 +76,35 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu - Outside of nav container */}
       <div 
-        className={`lg:hidden absolute top-16 left-0 right-0 w-full bg-[#FFFF00]/50 backdrop-blur-md border-b border-gray-200 shadow-lg z-40 transition-all duration-300 ease-in-out ${
+        className={`lg:hidden fixed top-16 left-0 w-full bg-[#FFFF00]/50 backdrop-blur-md border-b border-gray-200 shadow-lg z-40 transition-all duration-300 ease-in-out ${
           isMenuOpen 
             ? 'opacity-100 transform translate-y-0' 
             : 'opacity-0 transform -translate-y-4 pointer-events-none'
         }`}
       >
-        <div className="py-2">
-          {menuItems.map((item, index) => (
-            <a
-              key={item.href}
-              href={item.href}
-              target={item.target}
-              onClick={(e) => handleSmoothScroll(e, item.href)}
-              className={`block w-full py-3 text-center text-gray-800 font-medium hover:text-blue-600 hover:bg-gray-50 transition-all duration-200 ${
-                isMenuOpen 
-                  ? 'transform translate-x-0 opacity-100' 
-                  : 'transform translate-x-4 opacity-0'
-              }`}
-              style={{
-                transitionDelay: isMenuOpen ? `${index * 50}ms` : '0ms'
-              }}
-            >
-              {item.label}
-            </a>
-          ))}
+        <div className="max-w-full overflow-hidden">
+          <div className="py-2">
+            {menuItems.map((item, index) => (
+              <a
+                key={item.href}
+                href={item.href}
+                target={item.target}
+                onClick={(e) => handleSmoothScroll(e, item.href)}
+                className={`block w-full py-3 text-center text-gray-800 font-medium hover:text-blue-600 hover:bg-gray-50 transition-all duration-200 ${
+                  isMenuOpen 
+                    ? 'transform translate-x-0 opacity-100' 
+                    : 'transform translate-x-4 opacity-0'
+                }`}
+                style={{
+                  transitionDelay: isMenuOpen ? `${index * 50}ms` : '0ms'
+                }}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
