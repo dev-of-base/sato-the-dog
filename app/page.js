@@ -38,7 +38,7 @@ export default function Home() {
                 href={`https://x.com/Satothedog`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-button bg-white"
+                className="social-button"
                 title="X (Twitter)"
               >
                 <SiX size={36} color="default" />
@@ -47,7 +47,7 @@ export default function Home() {
                 href={`https://t.me/Satothedogcto`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-button bg-white"
+                className="social-button"
                 title="Telegram"
               >
                 <SiTelegram size={36} color="default" />
@@ -64,10 +64,10 @@ export default function Home() {
       {/* About Sato */}
       <About />
       {/* Trade Sato */}
-      <section id="#sato-token" className="w-full flex flex-col items-center justify-center bg-gray-800 py-6 px-2">
+      <section id="sato-token" className="w-full flex flex-col items-center justify-center bg-gray-800 py-6 px-2">
         <div className="flex items-center justify-center gap-4 my-4">
           <h2 className="font-cherry-bomb-one text-4xl sm:text-5xl lg:text-6xl text-gray-100 drop-shadow-lg m-0">
-            Trade SATO
+            $SATO Token
           </h2>
           <Image
             src="/assets/sato-logo.jpg"
@@ -77,6 +77,10 @@ export default function Home() {
             className="ml-2 rounded-full"
           />
         </div>
+        <p className="text-center font-inter text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">
+            SATO is designed to be clean and fair. With no hidden mechanics or unfair allocations, it’s a pure
+meme coin, entirely owned by the people.
+          </p>
         <SatoToken />
       </section>
       {/* Gallery */}

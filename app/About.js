@@ -8,13 +8,6 @@ export default function About() {
           <h2 className="font-cherry-bomb-one text-4xl sm:text-5xl lg:text-6xl text-gray-800 drop-shadow-lg text-center">
             About Sato
           </h2>
-          <Image
-            src="/assets/sato-logo.jpg"
-            alt="Sato the Dog Logo"
-            width={60}
-            height={60}
-            className="ml-2 rounded-full"
-          />
         </div>
         
         <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-12 items-start">

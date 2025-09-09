@@ -18,19 +18,49 @@ export default function SatoToken() {
 
   return (
     <>
-      <div className="bg-white border-2 border-gray-200 rounded-2xl mt-4 p-2 sm:p-4 md:p-6 shadow-xl max-w-2xl w-full">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-2">
-          <div className="flex-1 min-w-0 w-full">
-            <p className="text-xs text-gray-500 mb-2 ms-2 uppercase tracking-wide font-semibold">
-              Base Contract Address
-            </p>
-            <code className="text-gray-800 font-mono text-sm md:text-base break-words sm:break-all bg-gray-50 px-3 py-2 rounded-lg border block w-full">
+      <div className="border-2 border-gray-200 rounded-2xl mt-4 p-4 md:p-6 shadow-xl max-w-2xl w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
+          <div className="flex items-center">
+            <span className="font-semibold text-gray-100 mr-2">Network:</span>
+            <span className="text-gray-300">Base</span>
+          </div>
+          <div className="flex items-center">
+            <span className="font-semibold text-gray-100 mr-2">Total Supply:</span>
+            <span className="text-gray-300">100% in circulation</span>
+          </div>
+          <div className="flex items-center">
+            <span className="font-semibold text-gray-100 mr-2">Mint Function:</span>
+            <span className="text-gray-300">None</span>
+          </div>
+          <div className="flex items-center">
+            <span className="font-semibold text-gray-100 mr-2">Taxes:</span>
+            <span className="text-gray-300">None</span>
+          </div>
+          <div className="flex items-center">
+            <span className="font-semibold text-gray-100 mr-2">Ownership:</span>
+            <span className="text-gray-300">Renounced</span>
+          </div>
+          <div className="flex items-center">
+            <span className="font-semibold text-gray-100 mr-2">Dev Wallets:</span>
+            <span className="text-gray-300">None</span>
+          </div>
+        </div>
+      </div>
+      <div className="bg-[#FFFF00] border-2 border-gray-200 rounded-2xl mt-4 p-2 sm:p-4 md:p-6 shadow-xl max-w-2xl w-full">
+        <div className="flex-1 min-w-0 w-full">
+          <p className="text-xs text-gray-500 mb-2 ms-2 uppercase tracking-wide font-semibold">
+            Base Contract Address
+          </p>
+        </div>
+        <div className="flex flex-row items-start sm:items-center gap-2 pb-2">
+          <div className="flex-1 min-w-0 bg-gray-50 px-3 py-2 rounded-lg border">
+            <code className="text-gray-800 font-mono text-sm md:text-base break-all">
               {contractAddress}
             </code>
           </div>
           <button
             onClick={copyToClipboard}
-            className={`px-6 py-3 rounded-xl cursor-pointer font-semibold transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 whitespace-nowrap ${
+            className={`px-4 py-3 self-center rounded-xl cursor-pointer font-semibold transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 whitespace-nowrap flex-shrink-0 ${
               copied 
                 ? 'bg-green-500 text-white' 
                 : 'bg-blue-500 hover:bg-blue-600 text-white'
@@ -42,14 +72,12 @@ export default function SatoToken() {
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                Copied!
               </span>
             ) : (
               <span className="flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
-                Copy
               </span>
             )}
           </button>
