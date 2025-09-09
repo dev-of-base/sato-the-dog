@@ -13,7 +13,7 @@ export default function About() {
             alt="Sato the Dog Logo"
             width={60}
             height={60}
-            className="ml-2 rounded-full border-2 border-gray-200"
+            className="ml-2 rounded-full"
           />
         </div>
         

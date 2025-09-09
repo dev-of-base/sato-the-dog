@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function ContractAddress() {
+export default function SatoToken() {
   const [copied, setCopied] = useState(false);
   const contractAddress = "0x5a70be406ce7471a44f0183b8d7091f4ad751db5";
 
@@ -101,6 +101,8 @@ export default function ContractAddress() {
               className="h-8 w-auto md:h-10"
             />
           </a>
+          </div>
+          <div className="flex flex-wrap pt-4 items-center justify-center gap-4 sm:gap-6 md:gap-8">
           <a
             href="https://www.geckoterminal.com/ru/base/pools/0xd17a8609b5d95a5f49b290c4d787949bfec5279e"
             target="_blank"
@@ -109,7 +111,7 @@ export default function ContractAddress() {
             title="GeckoTerminal"
           >
             <img 
-              src="/assets/geckoterminal.png" 
+              src="/assets/geckoterminal-icon.png" 
               alt="GeckoTerminal" 
               className="h-8 w-auto md:h-10"
             />
@@ -122,7 +124,7 @@ export default function ContractAddress() {
             title="DexScreener"
           >
             <img 
-              src="/assets/dexscreener.avif" 
+              src="/assets/dexscreener-icon.png" 
               alt="DexScreener" 
               className="h-8 w-auto md:h-10"
             />
@@ -135,8 +137,34 @@ export default function ContractAddress() {
             title="DexTools"
           >
             <img 
-              src="/assets/dextools.avif" 
+              src="/assets/dextools-icon.png" 
               alt="DexTools" 
+              className="h-8 w-auto md:h-10"
+            />
+          </a>
+          <a
+            href="https://gemsofbase.com/projects/sato-the-dog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform duration-200 flex-shrink-0"
+            title="Gems of Base"
+          >
+            <img 
+              src="/assets/gemsofbase-icon.png" 
+              alt="Gems of Base" 
+              className="h-8 w-auto md:h-10"
+            />
+          </a>
+          <a
+            href="https://gmgn.ai/base/token/7WKDcuxn_0x5a70be406ce7471a44f0183b8d7091f4ad751db5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform duration-200 flex-shrink-0"
+            title="GMGN"
+          >
+            <img 
+              src="/assets/gmgn-icon.png" 
+              alt="GMGN" 
               className="h-8 w-auto md:h-10"
             />
           </a>

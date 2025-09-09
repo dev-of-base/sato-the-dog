@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function ArtworkCollage() {
+export default function GalleryImages() {
   // Placeholder image data with different aspect ratios
   const artworkPlaceholders = [
     { id: 1, alt: "Sato Artwork 1", type: "portrait" },

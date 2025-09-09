@@ -9,9 +9,30 @@ export default function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleSmoothScroll = (e, href) => {
+    // Only handle internal links (starting with #)
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      setIsMenuOpen(false); // Close mobile menu
+      
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        const navbarHeight = 80; // Approximate navbar height
+        const targetPosition = targetElement.offsetTop - navbarHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
   const menuItems = [
     { href: "#about-sato", label: "About Sato", target: "_self" },
-    { href: "#sato-nfts", label: "Sato NFTs", target: "_self" },
+    { href: "#sato-token", label: "$SATO", target: "_self" },
     { href: "#gallery", label: "Sato Gallery", target: "_self" },
     { href: "/SATO_WhitePaper_CommunityTakeover.pdf", label: "Whitepaper", target: "_blank" },
     { href: "#faqs", label: "FAQs", target: "_self" }
@@ -27,6 +48,7 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               target={item.target}
+              onClick={(e) => handleSmoothScroll(e, item.href)}
               className="text-gray-800 font-medium hover:text-blue-600 transition-colors"
             >
               {item.label}
@@ -65,7 +87,8 @@ export default function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              onClick={() => setIsMenuOpen(false)}
+              target={item.target}
+              onClick={(e) => handleSmoothScroll(e, item.href)}
               className={`block w-full py-3 text-center text-gray-800 font-medium hover:text-blue-600 hover:bg-gray-50 transition-all duration-200 ${
                 isMenuOpen 
                   ? 'transform translate-x-0 opacity-100' 

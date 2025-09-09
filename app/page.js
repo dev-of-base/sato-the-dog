@@ -1,6 +1,6 @@
 import Image from "next/image";
-import ContractAddress from "./ContractAddress";
-import ArtworkCollage from "./ArtworkCollage";
+import SatoToken from "./SatoToken";
+import GalleryImages from "./Gallery";
 import FAQs from "./FAQs";
 import About from "./About";
 import { 
@@ -14,6 +14,7 @@ import {
   SiDiscord, 
   SiReddit
 } from '@icons-pack/react-simple-icons';
+import Gallery from "./Gallery";
 
 export default function Home() {
   return (
@@ -53,17 +54,17 @@ export default function Home() {
             </a>
           </div>
         <Image
-          src="/assets/sato.png"
+          src="/assets/sato_logo_transparent.png"
           alt="Sato the Dog"
-          width={550}
-          height={550}
-          className="mx-auto px-16 pt-16"
+          width={600}
+          height={600}
+          className="mx-auto px-16"
         />
       </div>
       {/* About Sato */}
       <About />
       {/* Trade Sato */}
-      <section className="w-full flex flex-col items-center justify-center bg-gray-800 py-6 px-2">
+      <section id="#sato-token" className="w-full flex flex-col items-center justify-center bg-gray-800 py-6 px-2">
         <div className="flex items-center justify-center gap-4 my-4">
           <h2 className="font-cherry-bomb-one text-4xl sm:text-5xl lg:text-6xl text-gray-100 drop-shadow-lg m-0">
             Trade SATO
@@ -76,11 +77,11 @@ export default function Home() {
             className="ml-2 rounded-full"
           />
         </div>
-        <ContractAddress />
+        <SatoToken />
       </section>
-      {/* Artwork Collage */}
+      {/* Gallery */}
       <section id="gallery" className="w-full bg-[#0052FF] py-16 px-4">
-      <ArtworkCollage />
+        <Gallery />
       </section>
       {/* FAQs */}
       <FAQs />
