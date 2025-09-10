@@ -52,6 +52,24 @@ export default function Home() {
               >
                 <SiTelegram size={36} color="default" />
             </a>
+            <a
+                href={`https://www.tiktok.com/@satothedogbase`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-button"
+                title="TikTok"
+              >
+                <SiTiktok size={36} color="default" />
+            </a>
+            <a
+                href={`https://www.facebook.com/share/1Hcja2isfz/`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-button"
+                title="Facebook"
+              >
+                <SiFacebook size={36} color="default" />
+            </a>
           </div>
         <Image
           src="/assets/sato_logo_transparent.png"
