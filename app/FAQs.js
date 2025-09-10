@@ -9,12 +9,12 @@ export default function FAQs() {
     {
       id: 1,
       question: "What is SATO?",
-      answer: "SATO is a community-driven meme token inspired by Sato the Dog, bringing fun and utility to the crypto space with a focus on building a strong, engaged community."
+      answer: "SATO is a fully community-led meme token built on the Base network. When the original team abandoned the project, they didn’t just walk away — they created damage. Through a flawed staking program, many holders lost not only their rewards but also their entire initial investment. What happened next is something rare in crypto. Instead of letting the project die, dedicated community members stepped in to save it. Out of their own wallets, loyal holders redistributed tokens back to those who had lost theirs. Without this unprecedented act of solidarity, SATO would never have survived — because a large portion of the community would have been permanently wiped out. This act of self-sacrifice and unity is what revived SATO. It turned the token into more than a meme — it became a story of resilience, trust, and true decentralization."
     },
     {
       id: 2,
       question: "Where can I trade SATO?",
-      answer: "SATO can be traded on various decentralized exchanges (DEXs) and centralized exchanges. Check our official channels for the most up-to-date list of supported trading platforms."
+      answer: "Right now, SATO can be traded on Uniswap (Base network). You can also access it directly through the Base app (previously Coinbase Wallet). Both options give you easy, decentralized access to buying and selling SATO."
     },
     {
       id: 3,
@@ -24,12 +24,12 @@ export default function FAQs() {
     {
       id: 4,
       question: "What are the SATO NFTs?",
-      answer: "SATO NFTs are unique digital collectibles featuring Sato the Dog artwork and characters. These NFTs provide holders with special utility and community benefits within the SATO ecosystem."
+      answer: "Originally, around 5,000 NFTs were launched by the old team. After everything that happened, we decided to create a new 100-piece limited collection — dedicated to the loyal holders who stood by SATO and are helping rebuild the project. These special NFTs are coming very soon."
     },
     {
       id: 5,
       question: "What is the Woof DAO?",
-      answer: "Woof DAO is the decentralized autonomous organization that governs the SATO ecosystem. It allows community members to participate in decision-making processes and vote on important proposals for the project's future."
+      answer: "The Woof DAO is SATO’s community-driven governance system. While it’s not fully official yet, the treasury is managed through a multi-signature wallet, decisions are made transparently, and holders can take part through polls and proposals."
     }
   ];
 
@@ -38,9 +38,9 @@ export default function FAQs() {
   };
 
   return (
-    <section id="faqs" className="w-full bg-white py-16 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="font-cherry-bomb-one text-4xl sm:text-5xl lg:text-6xl text-gray-800 text-center mb-12 drop-shadow-lg">
+    <section id="faqs" className="w-full bg-white py-6 px-2">
+      <div className="max-w-4xl mx-auto mb-4">
+        <h2 className="font-cherry-bomb-one text-4xl sm:text-5xl lg:text-6xl text-gray-800 text-center mb-6 sm:mb-12 drop-shadow-lg">
           Frequently Asked Questions
         </h2>
         
@@ -72,7 +72,7 @@ export default function FAQs() {
                 }`}
               >
                 <div className="px-6 pb-4 pt-2">
-                  <p className="font-inter text-gray-700 leading-relaxed">
+                  <p className="font-inter text-gray-700 text-sm sm:text-base sm:leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>

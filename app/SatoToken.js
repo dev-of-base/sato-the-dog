@@ -46,7 +46,7 @@ export default function SatoToken() {
           </div>
         </div>
       </div>
-      <div className="bg-[#FFFF00] border-2 border-gray-200 rounded-2xl mt-4 p-2 sm:p-4 md:p-6 shadow-xl max-w-2xl w-full">
+      <div className="border-2 border-gray-200 rounded-2xl mt-4 p-2 sm:p-4 md:p-6 shadow-xl max-w-2xl w-full">
         <div className="flex-1 min-w-0 w-full">
           <p className="text-xs text-gray-500 mb-2 ms-2 uppercase tracking-wide font-semibold">
             Base Contract Address
@@ -101,8 +101,8 @@ export default function SatoToken() {
           </a>
         </div>
       </div>
-      <div className="mt-4 p-4 md:p-6 w-full">
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8">
+      <div className="mt-4 p-3 sm:p-4 md:p-6 w-full">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 md:gap-8">
           <a
             href="https://www.coingecko.com/en/coins/sato-the-dog"
             target="_blank"

@@ -23,5 +23,5 @@ body {
 }
 
 .social-button {
-  @apply p-3 rounded-full hover:scale-105 transition-transform shadow-2xl bg-white/50;
+  @apply p-3 rounded-full hover:scale-105 transition-transform bg-white/50;
 }

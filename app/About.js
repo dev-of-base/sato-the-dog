@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="about-sato" className="w-full bg-white py-16 px-4">
+    <section id="about-sato" className="w-full bg-white py-6 px-2 sm:px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-center gap-4 mb-12">
+        <div className="flex items-center justify-center gap-4 mb-6 sm:mb-12">
           <h2 className="font-cherry-bomb-one text-4xl sm:text-5xl lg:text-6xl text-gray-800 drop-shadow-lg text-center">
             About Sato
           </h2>
@@ -17,12 +17,12 @@ export default function About() {
               <h3 className="font-cherry-bomb-one text-2xl sm:text-3xl text-gray-800 mb-4">
                 Introduction
               </h3>
-              <p className="font-inter text-gray-700 leading-relaxed text-lg">
+              <p className="font-inter text-gray-700 leading-relaxed text-base sm:text-lg">
                 SATO is a decentralized meme coin born on the Base network and originally launched with minimal
                 utility beyond its meme value. After a period of abandonment by the original developers, the project
                 was revived by a passionate community of holders who refused to let SATO fade into obscurity.
               </p>
-              <p className="font-inter text-gray-700 leading-relaxed text-lg mt-4">
+              <p className="font-inter text-gray-700 leading-relaxed text-base sm:text-lg mt-4">
                 Today, SATO is in the hands of its community. No central authority, no promises—just a shared vision
                 and commitment to giving this meme coin a new life through creativity, transparency, and decentralized
                 coordination.
@@ -30,8 +30,15 @@ export default function About() {
             </div>
           </div>
 
+          <Image
+                    src="/assets/about-sato-image.png"
+                    alt="Sato the Dog"
+                    width={400}
+                    height={400}
+                    className="mx-auto px-4"
+                  />
           {/* Vision & Mission */}
-          <div className="space-y-6">
+          {/* <div className="space-y-6">
             <div>
               <h3 className="font-cherry-bomb-one text-2xl sm:text-3xl text-gray-800 mb-4">
                 Vision & Mission
@@ -52,12 +59,12 @@ export default function About() {
                 <li>A digital character that can expand across art, gaming, entertainment, and storytelling</li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
         
         {/* Whitepaper Section */}
-        <div className="text-center mt-12 pt-8 border-t border-gray-200">
-          <p className="font-inter text-gray-700 text-lg">
+        <div className="text-center mt-0 py-4 border-t-2 border-gray-200">
+          <p className="font-inter text-gray-700 text-base sm:text-lg">
             Find out more about SATO in our{" "}
             <a
               href="/SATO_WhitePaper_CommunityTakeover.pdf"
