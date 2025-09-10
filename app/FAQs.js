@@ -19,7 +19,7 @@ export default function FAQs() {
     {
       id: 3,
       question: "What is the official Contract Address of SATO?",
-      answer: "The official contract address can be found in our Contract Address section above. Always verify the contract address through our official channels to avoid scams."
+      answer: "The official contract address for $SATO on the base network is 0x5a70be406ce7471a44f0183b8d7091f4ad751db5. Always verify the contract address through our official channels to avoid scams."
     },
     {
       id: 4,

@@ -47,7 +47,7 @@ export default function Footer() {
 
         {/* Disclaimer */}
         <div className="mb-6 px-2">
-          <p className="text-sm text-gray-900 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-gray-900 max-w-2xl mx-auto">
             <strong>Disclaimer:</strong> $SATO is a memecoin created for entertainment purposes only. 
             It has no intrinsic value and should not be considered an investment. 
             Please do your own research and invest responsibly.
@@ -56,7 +56,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mb-1 px-2">
-          <p className="text-sm text-gray-900">
+          <p className="text-sm sm:text-base text-gray-900">
             © 2025 Sato The Dog. All rights reserved. | Built with ❤️ by{" "}
             <a
               href="https://x.com/KrakenC0ke"
