@@ -49,11 +49,6 @@ const nextConfig = {
   
   // Output optimization
   output: 'standalone',
-  
-  // Experimental features for better performance
-  experimental: {
-    optimizeCss: true,
-  }
 };
 
 export default nextConfig;
