@@ -1,0 +1,26 @@
+{
+  "name": "Sato the Dog",
+  "short_name": "SATO",
+  "description": "SATO is a decentralized meme coin born on the Base Chain, revived by a passionate community.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/sato_logo_transparent.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/sato_logo_transparent.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["finance", "entertainment"],
+  "lang": "en-US"
+}

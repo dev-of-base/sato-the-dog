@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sato-the-dog.vercel.app/sitemap.xml
