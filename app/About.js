@@ -23,7 +23,7 @@ export default function About() {
                 was revived by a passionate community of holders who refused to let SATO fade into obscurity.
               </p>
               <p className="font-inter text-gray-700 leading-relaxed text-base sm:text-lg mt-4">
-                Today, SATO is in the hands of its community. No central authority, no promises—just a shared vision
+                Today, SATO is in the hands of its community. No central authority, no hidden agenda - just a shared vision
                 and commitment to giving this meme coin a new life through creativity, transparency, and decentralized
                 coordination.
               </p>

@@ -50,7 +50,7 @@ export default function Navbar() {
               href={item.href}
               target={item.target}
               onClick={(e) => handleSmoothScroll(e, item.href)}
-              className="text-gray-800 font-medium hover:text-blue-600 transition-colors"
+              className="text-gray-800 font-semibold hover:text-blue-600 transition-colors"
             >
               {item.label}
             </a>
@@ -91,7 +91,7 @@ export default function Navbar() {
                 href={item.href}
                 target={item.target}
                 onClick={(e) => handleSmoothScroll(e, item.href)}
-                className={`block w-full py-3 text-center text-gray-800 font-medium hover:text-blue-600 hover:bg-gray-50 transition-all duration-200 ${
+                className={`block w-full py-3 text-center text-gray-800 font-bold hover:text-blue-600 hover:bg-gray-50 transition-all duration-200 ${
                   isMenuOpen 
                     ? 'transform translate-x-0 opacity-100' 
                     : 'transform translate-x-4 opacity-0'
