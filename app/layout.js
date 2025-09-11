@@ -1,5 +1,6 @@
 
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import AudioPlayer from "./AudioPlayer";
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
         <AudioPlayer />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
