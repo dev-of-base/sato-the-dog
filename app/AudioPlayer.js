@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
+import { track } from '@vercel/analytics';
 
 export default function AudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -16,6 +17,7 @@ export default function AudioPlayer() {
   }, []);
 
   const toggleAudio = () => {
+
     const audio = audioRef.current;
     if (!audio) return;
 
@@ -24,6 +26,7 @@ export default function AudioPlayer() {
       setIsPlaying(false);
     } else {
       audio.play().then(() => {
+        track('Pressed play');
         setIsPlaying(true);
       }).catch((error) => {
         console.log('Play failed:', error);
