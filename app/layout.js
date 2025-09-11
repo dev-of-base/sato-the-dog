@@ -2,6 +2,7 @@
 import "./globals.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import AudioPlayer from "./AudioPlayer";
 import { Cherry_Bomb_One, Inter } from "next/font/google";
 
 const inter = Inter({
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.variable} ${cherryBombOne.variable} antialiased`}>
         <Navbar />
+        <AudioPlayer />
         {children}
         <Footer />
       </body>
