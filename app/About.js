@@ -1,4 +1,5 @@
 import Image from "next/image";
+import WhitepaperLink from "./WhitepaperLink";
 
 export default function About() {
   return (
@@ -66,13 +67,7 @@ export default function About() {
         <div className="text-center mt-0 py-4 border-t-2 border-gray-200">
           <p className="font-inter text-gray-700 text-base sm:text-lg">
             Find out more about SATO in our{" "}
-            <a
-              href="/SATO_WhitePaper_CommunityTakeover.pdf"
-              download="SATO_WhitePaper_CommunityTakeover.pdf"
-              className="font-semibold text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
-            >
-              Whitepaper
-            </a>
+            <WhitepaperLink className="font-semibold text-blue-600 hover:text-blue-800 underline transition-colors duration-200" />
           </p>
         </div>
       </div>

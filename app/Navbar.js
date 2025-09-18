@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import { track } from '@vercel/analytics';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,6 +40,25 @@ export default function Navbar() {
     { href: "#faqs", label: "FAQs", target: "_self" }
   ];
 
+  const handleMenuItemClick = (e, item, source) => {
+    // Track whitepaper clicks (external PDF)
+    if (item.label === 'Whitepaper') {
+      // Don't interfere with default navigation (new tab)
+      track('whitepaper_click', { source: 'navbar' });
+      // Close mobile menu explicitly
+      if (source === 'mobile') setIsMenuOpen(false);
+      return; // Nothing else to do
+    }
+
+    // Internal smooth scrolling
+    if (item.href.startsWith('#')) {
+      handleSmoothScroll(e, item.href);
+    } else if (source === 'mobile') {
+      // Close mobile menu for any other external link (future proofing)
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <div className="w-full max-w-full overflow-hidden">
       <nav className="font-inter relative top-2 lg:fixed lg:top-6 left-1/2 transform -translate-x-1/2 z-50">
@@ -49,7 +69,7 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               target={item.target}
-              onClick={(e) => handleSmoothScroll(e, item.href)}
+              onClick={(e) => handleMenuItemClick(e, item, 'desktop')}
               className="text-gray-800 font-semibold hover:text-blue-600 transition-colors"
             >
               {item.label}
@@ -90,7 +110,7 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 target={item.target}
-                onClick={(e) => handleSmoothScroll(e, item.href)}
+                onClick={(e) => handleMenuItemClick(e, item, 'mobile')}
                 className={`block w-full py-3 text-center text-gray-800 font-bold hover:text-blue-600 hover:bg-gray-50 transition-all duration-200 ${
                   isMenuOpen 
                     ? 'transform translate-x-0 opacity-100' 
