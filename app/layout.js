@@ -1,6 +1,7 @@
 
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
+import MarketData from "./MarketData";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import AudioPlayer from "./AudioPlayer";
@@ -78,6 +79,7 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={`${inter.variable} ${cherryBombOne.variable} antialiased`}>
+        <MarketData />
         <Navbar />
         <AudioPlayer />
         {children}

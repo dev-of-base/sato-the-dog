@@ -1,10 +1,19 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { track } from '@vercel/analytics';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -61,7 +70,7 @@ export default function Navbar() {
 
   return (
     <div className="w-full max-w-full overflow-hidden">
-      <nav className="font-inter relative top-2 lg:fixed lg:top-6 left-1/2 transform -translate-x-1/2 z-50">
+      <nav className={`font-inter relative lg:fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${scrolled ? 'top-2' : 'top-2 lg:top-10'}`}>
         {/* Desktop Navigation */}
         <div className="hidden lg:flex px-8 py-3 gap-6 items-center bg-white/70 backdrop-blur-md rounded-2xl border border-gray-200 shadow-lg">
           {menuItems.map((item) => (
@@ -79,7 +88,7 @@ export default function Navbar() {
 
         {/* Mobile Navigation - Burger Button */}
         <div className="lg:hidden">
-          <div className="px-4 py-3 flex justify-center">
+          <div className="px-4 flex justify-center">
             <button
               onClick={toggleMenu}
               className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
