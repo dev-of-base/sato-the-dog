@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from "react";
+import Image from 'next/image';
 
 export default function SatoToken() {
   const [copied, setCopied] = useState(false);
@@ -17,7 +18,22 @@ export default function SatoToken() {
   };
 
   return (
-    <>
+    <section id="sato-token" className="w-full flex flex-col items-center justify-center bg-gray-800 py-6 px-2">
+      <div className="flex items-center justify-center gap-4 mb-6 sm:mb-12">
+        <h2 className="font-cherry-bomb-one text-4xl sm:text-5xl lg:text-6xl text-gray-100 drop-shadow-lg text-center">
+          $SATO Token
+        </h2>
+        <Image
+          src="/assets/sato-logo.jpg"
+          alt="Sato the Dog Logo"
+          width={60}
+          height={60}
+          className="ml-1 sm:ml-2 rounded-full w-[40px] h-[40px] sm:w-[60px] sm:h-[60px]"
+        />
+      </div>
+      <p className="text-center font-inter text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">
+        SATO is designed to be clean and fair. With no hidden mechanics or unfair allocations, it's a pure meme coin, entirely owned by the people.
+      </p>
       <div className="border-2 border-gray-200 rounded-2xl mt-4 p-4 md:p-6 shadow-xl max-w-2xl w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
           <div className="flex items-center">
@@ -198,6 +214,6 @@ export default function SatoToken() {
           </a>
         </div>
       </div>
-      </>
+    </section>
   );
 }

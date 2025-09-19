@@ -83,29 +83,9 @@ export default function Home() {
       {/* About Sato */}
       <About />
       {/* Trade Sato */}
-      <section id="sato-token" className="w-full flex flex-col items-center justify-center bg-gray-800 py-6 px-2">
-        <div className="flex items-center justify-center gap-4 mb-6 sm:mb-12">
-          <h2 className="font-cherry-bomb-one text-4xl sm:text-5xl lg:text-6xl text-gray-100 drop-shadow-lg text-center">
-            $SATO Token
-          </h2>
-          <Image
-            src="/assets/sato-logo.jpg"
-            alt="Sato the Dog Logo"
-            width={60}
-            height={60}
-            className="ml-1 sm:ml-2 rounded-full w-[40px] h-[40px] sm:w-[60px] sm:h-[60px]"
-          />
-        </div>
-        <p className="text-center font-inter text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">
-            SATO is designed to be clean and fair. With no hidden mechanics or unfair allocations, it’s a pure
-meme coin, entirely owned by the people.
-          </p>
-        <SatoToken />
-      </section>
-      {/* Gallery */}
-      <section id="gallery" className="w-full bg-[#0052FF] py-6 px-4">
-        <Gallery />
-      </section>
+      <SatoToken />
+      {/* Gallery */}  
+      <Gallery />
       {/* SATO NFTs */}
       <SatoNFTs />
       {/* FAQs */}

@@ -79,6 +79,7 @@ export default function GalleryImages() {
   ];
 
   return (
+    <section id="gallery" className="w-full bg-[#0052FF] py-6 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-12">
@@ -202,5 +203,6 @@ export default function GalleryImages() {
           </div>
         )}
       </div>
+    </section>
   );
 }
