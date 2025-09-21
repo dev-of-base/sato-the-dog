@@ -9,7 +9,9 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: "var(--font-inter)",
-        cherryBombOne: "var(--font-cherry-bomb-one)"
+        cherryBombOne: "var(--font-cherry-bomb-one)",
+        poppins: "var(--font-poppins)",
+        baloo: "var(--font-baloo)"
       },
     },
   },

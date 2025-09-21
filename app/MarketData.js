@@ -1,7 +1,7 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
+import Tooltip from './Tooltip';
 
 /**
  * Internal helper to format very small numbers with zero counting logic
@@ -206,24 +206,30 @@ export default function MarketData() {
   const priceChange24h = poolData?.price_change_percentage?.h24;
 
   return (
-    <section className="w-full h-8 bg-white/70 flex items-center justify-center space-x-4">
-        <span className="text-xs font-medium">
+    <section className="font-baloo font-normal cursor-default w-full h-8 bg-white/70 flex items-center justify-center space-x-4 md:space-x-8 lg:space-x-12">
+        <span className="hidden md:inline-block text-xs font-bold">
           $SATO
         </span>
       {price && (
-        <span className="text-xs font-medium">
-          💰 ${shortenPriceUsdJSX(price)}
-        </span>
+        <Tooltip content="Token price">
+          <span className="text-xs font-medium">
+            💰 ${shortenPriceUsdJSX(price)}
+          </span>
+        </Tooltip>
       )}
       {volume24h && (
-        <span className="text-xs">
-          📊 ${parseInt(volume24h).toLocaleString()}
-        </span>
+        <Tooltip content="24h trading volume">
+          <span className="text-xs">
+            📊 ${parseInt(volume24h).toLocaleString()}
+          </span>
+        </Tooltip>
       )}
       {priceChange24h && (
-        <span className={`text-xs ${parseFloat(priceChange24h) >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-          {parseFloat(priceChange24h) >= 0 ? '📈' : '📉'} {parseFloat(priceChange24h).toFixed(2)}%
-        </span>
+        <Tooltip content="24h price change">
+          <span className={`text-xs ${parseFloat(priceChange24h) >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+            {parseFloat(priceChange24h) >= 0 ? '📈' : '📉'} {parseFloat(priceChange24h).toFixed(2)}%
+          </span>
+        </Tooltip>
       )}
     </section>
   );

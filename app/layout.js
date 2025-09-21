@@ -5,7 +5,7 @@ import MarketData from "./MarketData";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import AudioPlayer from "./AudioPlayer";
-import { Cherry_Bomb_One, Inter } from "next/font/google";
+import { Cherry_Bomb_One, Inter, Poppins, Baloo_2 } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,8 +17,19 @@ const cherryBombOne = Cherry_Bomb_One({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-cherry-bomb-one"
-})
+});
 
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-poppins"
+});
+
+const baloo = Baloo_2({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-poppins"
+});
 
 export const metadata = {
   title: "Sato the Dog | Community-Owned Meme Coin on Base Chain",
@@ -78,7 +89,7 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/assets/sato_logo_transparent.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className={`${inter.variable} ${cherryBombOne.variable} antialiased`}>
+      <body className={`${inter.variable} ${cherryBombOne.variable} ${poppins.variable} ${baloo.variable} antialiased`}>
         <MarketData />
         <Navbar />
         <AudioPlayer />
