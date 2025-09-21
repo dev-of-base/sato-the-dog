@@ -207,14 +207,14 @@ export default function MarketData() {
   const priceChange24h = poolData?.price_change_percentage?.h24;
 
   return (
-    <section className="font-baloo font-normal cursor-default w-full h-8 z-50 bg-white/70 backdrop-blur-md border-b border-gray-200 flex items-center justify-center space-x-4 md:space-x-8 lg:space-x-12">
+    <section className="font-baloo font-normal cursor-default w-full h-8 bg-white/70 border-b border-gray-200 flex items-center justify-center space-x-4 md:space-x-8 lg:space-x-12">
         <span className="hidden md:inline-block text-xs font-bold">
           $SATO
         </span>
       {price && (
         <Tooltip content="Token price">
           <span className="text-xs font-medium flex items-center space-x-0.5">
-            <CurrencyDollarIcon className="w-4 h-4 text-amber-600" aria-hidden="true" />
+            <CurrencyDollarIcon className="w-4 h-4 text-amber-500" aria-hidden="true" />
             <span>${shortenPriceUsdJSX(price)}</span>
           </span>
         </Tooltip>

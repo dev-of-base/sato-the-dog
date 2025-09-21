@@ -56,7 +56,7 @@ export default function Tooltip({ content, children, className = '' }) {
   return (
     <span
       ref={wrapperRef}
-      className={`relative inline-flex items-center ${className}`}
+      className={`relative z-50 inline-flex items-center ${className}`}
       onMouseEnter={show}
       onMouseLeave={hide}
       onFocus={show}
