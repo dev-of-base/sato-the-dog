@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Tooltip from './Tooltip';
+import { CurrencyDollarIcon, ChartBarIcon, ArrowTrendingUpIcon, ArrowTrendingDownIcon } from '@heroicons/react/24/solid';
 
 /**
  * Internal helper to format very small numbers with zero counting logic
@@ -206,28 +207,35 @@ export default function MarketData() {
   const priceChange24h = poolData?.price_change_percentage?.h24;
 
   return (
-    <section className="font-baloo font-normal cursor-default w-full h-8 bg-white/70 flex items-center justify-center space-x-4 md:space-x-8 lg:space-x-12">
+    <section className="font-baloo font-normal cursor-default w-full h-8 z-50 bg-white/70 backdrop-blur-md border-b border-gray-200 flex items-center justify-center space-x-4 md:space-x-8 lg:space-x-12">
         <span className="hidden md:inline-block text-xs font-bold">
           $SATO
         </span>
       {price && (
         <Tooltip content="Token price">
-          <span className="text-xs font-medium">
-            💰 ${shortenPriceUsdJSX(price)}
+          <span className="text-xs font-medium flex items-center space-x-0.5">
+            <CurrencyDollarIcon className="w-4 h-4 text-amber-600" aria-hidden="true" />
+            <span>${shortenPriceUsdJSX(price)}</span>
           </span>
         </Tooltip>
       )}
       {volume24h && (
         <Tooltip content="24h trading volume">
-          <span className="text-xs">
-            📊 ${parseInt(volume24h).toLocaleString()}
+          <span className="text-xs flex items-center space-x-0.5">
+            <ChartBarIcon className="w-4 h-4 text-blue-600" aria-hidden="true" />
+            <span>${parseInt(volume24h).toLocaleString()}</span>
           </span>
         </Tooltip>
       )}
       {priceChange24h && (
         <Tooltip content="24h price change">
-          <span className={`text-xs ${parseFloat(priceChange24h) >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-            {parseFloat(priceChange24h) >= 0 ? '📈' : '📉'} {parseFloat(priceChange24h).toFixed(2)}%
+          <span className={`text-xs flex items-center space-x-0.5 ${parseFloat(priceChange24h) >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+            {parseFloat(priceChange24h) >= 0 ? (
+              <ArrowTrendingUpIcon className="w-4 h-4" aria-hidden="true" />
+            ) : (
+              <ArrowTrendingDownIcon className="w-4 h-4" aria-hidden="true" />
+            )}
+            <span>{parseFloat(priceChange24h).toFixed(2)}%</span>
           </span>
         </Tooltip>
       )}

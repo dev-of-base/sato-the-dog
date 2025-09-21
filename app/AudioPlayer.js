@@ -64,7 +64,7 @@ export default function AudioPlayer() {
   };
 
   return (
-    <div className={`fixed right-4 z-50 transition-all duration-300 ${scrolled ? 'top-2' : 'top-6 lg:top-10'}`}>
+    <div className={`fixed right-4 z-40 transition-all duration-300 ${scrolled ? 'top-2' : 'top-6 lg:top-10'}`}>
       <audio
         ref={audioRef}
         src="/sato-audio-theme.mp3"

@@ -70,9 +70,9 @@ export default function Navbar() {
 
   return (
     <div className="w-full max-w-full overflow-hidden">
-      <nav className={`font-inter relative lg:fixed left-1/2 transform -translate-x-1/2 z-40 transition-all duration-300 ${scrolled ? 'top-2' : 'top-2 lg:top-10'}`}>
+      <nav className={`font-inter relative lg:fixed left-1/2 transform -translate-x-1/2 z-30 transition-all duration-300 ${scrolled ? 'top-2' : 'top-2 lg:top-10'}`}>
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex px-8 py-3 gap-6 items-center bg-white/70 backdrop-blur-md rounded-2xl border border-gray-200 shadow-lg">
+        <div className="hidden lg:flex px-8 py-3 gap-6 items-center bg-white/80 rounded-2xl border border-gray-200 shadow-lg">
           {menuItems.map((item) => (
             <a
               key={item.href}
