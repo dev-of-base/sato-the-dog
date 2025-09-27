@@ -106,7 +106,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu - Outside of nav container */}
       <div 
-        className={`lg:hidden fixed top-16 left-0 w-full bg-[#FFFF00]/50 backdrop-blur-md border-b border-gray-200 shadow-lg z-40 transition-all duration-300 ease-in-out ${
+        className={`lg:hidden fixed top-18 left-0 w-full bg-[#FFFF00]/50 backdrop-blur-md border-b border-gray-200 shadow-lg z-40 transition-all duration-300 ease-in-out ${
           isMenuOpen 
             ? 'opacity-100 transform translate-y-0' 
             : 'opacity-0 transform -translate-y-4 pointer-events-none'
