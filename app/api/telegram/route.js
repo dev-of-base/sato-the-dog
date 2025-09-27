@@ -23,9 +23,18 @@ bot.catch((err) => {
   console.error('Bot error:', err);
 });
 
+// Initialize the bot once
+let botInitialized = false;
+
 // Manual webhook handler for Next.js App Router
 export async function POST(request) {
   try {
+    // Initialize bot if not already done
+    if (!botInitialized) {
+      await bot.init();
+      botInitialized = true;
+    }
+
     const body = await request.json();
     
     // Process the update with Grammy
