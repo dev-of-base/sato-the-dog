@@ -5,16 +5,17 @@ const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN || '');
 
 // Set up your bot handlers
 bot.command('start', (ctx) => {
-  ctx.reply('Hello! Welcome to Sato the Dog bot! 🐕');
+  ctx.reply('Woof! I am your friendly guide bot. Type /commands to see what tricks I can do! 🐕');
+});
+bot.command('commands', (ctx) => {
+  ctx.reply('/sato - Get the latest $SATO data\n/chart - See the latest $SATO chart\n/joke - Tell a joke\n');
 });
 
 bot.on('message:text', (ctx) => {
   const message = ctx.message.text.toLowerCase();
   
-  if (message.includes('sato') || message.includes('dog')) {
-    ctx.reply('Woof! You mentioned Sato! 🐕 How can I help you today?');
-  } else {
-    ctx.reply('Hello! I\'m Sato the Dog bot. How can I assist you? 🐕');
+  if (message.includes('woof') || message.includes('bark')) {
+    ctx.reply("Woof!");
   }
 });
 
