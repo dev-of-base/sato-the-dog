@@ -1,4 +1,4 @@
-import { Bot, webhookCallback } from 'grammy';
+import { Bot } from 'grammy';
 
 // Initialize your bot with the token
 const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN || '');
@@ -18,11 +18,26 @@ bot.on('message:text', (ctx) => {
   }
 });
 
-// Create webhook handler for Next.js
-const handleWebhook = webhookCallback(bot, 'next-js');
+// Error handling
+bot.catch((err) => {
+  console.error('Bot error:', err);
+});
 
-// Export handlers for Next.js App Router
-export const POST = handleWebhook;
-export const GET = async () => {
+// Manual webhook handler for Next.js App Router
+export async function POST(request) {
+  try {
+    const body = await request.json();
+    
+    // Process the update with Grammy
+    await bot.handleUpdate(body);
+    
+    return new Response('OK', { status: 200 });
+  } catch (error) {
+    console.error('Webhook error:', error);
+    return new Response('Error processing webhook', { status: 500 });
+  }
+}
+
+export async function GET() {
   return new Response('Telegram webhook endpoint', { status: 200 });
-};
+}
