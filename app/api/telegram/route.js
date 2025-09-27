@@ -10,6 +10,9 @@ bot.command('start', (ctx) => {
 bot.command('commands', (ctx) => {
   ctx.reply('/sato - Get the latest $SATO data\n/chart - See the latest $SATO chart\n/joke - Tell a joke\n');
 });
+bot.command('sato', (ctx) => {
+  ctx.reply('Market Data will appear here');
+});
 
 bot.on('message:text', (ctx) => {
   const message = ctx.message.text.toLowerCase();
