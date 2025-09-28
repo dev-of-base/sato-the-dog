@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Tooltip from './Tooltip';
 import { CurrencyDollarIcon, ChartBarIcon, ArrowTrendingUpIcon, ArrowTrendingDownIcon } from '@heroicons/react/24/solid';
-import { shortenPriceUsdJSX } from './crypto-functions';
+import { formatSmallNumber } from './crypto-functions';
 
 export default function MarketData() {
   const [marketData, setMarketData] = useState(null);
@@ -64,6 +64,44 @@ export default function MarketData() {
     
     return () => clearInterval(interval);
   }, [initialLoading]);
+
+
+  /**
+   * Shortens price USD for display with proper JSX subscript rendering for very small numbers
+   * @param {number|string} price - The price in USD (number or string)
+   * @returns {React.ReactNode} Formatted price with proper subscript JSX
+   */
+  function shortenPriceUsdJSX(price) {
+  if (price === undefined || price === null) return '--';
+  
+  const numPrice = typeof price === 'string' ? parseFloat(price) : price;
+  
+  if (isNaN(numPrice)) return '--';
+  
+  // For numbers >= 1, show with appropriate decimal places
+  if (numPrice >= 1) {
+    if (numPrice >= 1000) {
+      return numPrice.toLocaleString('en-US', { 
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2 
+      });
+    } else {
+      return numPrice.toFixed(2);
+    }
+  }
+  
+  const { display, subscript, digits } = formatSmallNumber(numPrice);
+
+  return (
+    <>
+      {display}
+      {subscript && (
+        <sub style={{ fontSize: '0.7em', verticalAlign: 'middle' }}>{subscript}</sub>
+      )}
+      {digits}
+    </>
+  );
+}
 
   // Show loading message during initial load
   if (initialLoading) {

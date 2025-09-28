@@ -51,6 +51,29 @@ export function formatSmallNumber(numPrice) {
 }
 
 /**
+ * Formats large numbers with appropriate suffixes (K, M, B)
+ * @param value - The number to format (number or string)
+ * @returns Formatted string with suffix
+ */
+export function formatLargeNumber(value) {
+  if (value === undefined || value === null) return '--';
+  
+  const numValue = typeof value === 'string' ? parseFloat(value) : value;
+  
+  if (isNaN(numValue)) return '--';
+  
+  if (numValue >= 1e9) {
+    return `$${(numValue / 1e9).toFixed(2)}B`;
+  } else if (numValue >= 1e6) {
+    return `$${(numValue / 1e6).toFixed(2)}M`;
+  } else if (numValue >= 1e3) {
+    return `$${(numValue / 1e3).toFixed(2)}K`;
+  } else {
+    return `$${numValue.toFixed(2)}`;
+  }
+}
+
+/**
  * Shortens price USD for display with proper formatting for very small numbers
  * Returns a string representation (subscript notation as text)
  * @param {number|string} price - The price in USD (number or string)
@@ -85,38 +108,19 @@ export function shortenPriceUsd(price) {
 }
 
 /**
- * Shortens price USD for display with proper JSX subscript rendering for very small numbers
- * @param {number|string} price - The price in USD (number or string)
- * @returns {React.ReactNode} Formatted price with proper subscript JSX
+ * Formats a timestamp string to a readable date format
+ * @param timestamp - The timestamp string to format
+ * @returns Formatted date string or 'Not available' if timestamp is invalid
  */
-export function shortenPriceUsdJSX(price) {
-  if (price === undefined || price === null) return '--';
-  
-  const numPrice = typeof price === 'string' ? parseFloat(price) : price;
-  
-  if (isNaN(numPrice)) return '--';
-  
-  // For numbers >= 1, show with appropriate decimal places
-  if (numPrice >= 1) {
-    if (numPrice >= 1000) {
-      return numPrice.toLocaleString('en-US', { 
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2 
-      });
-    } else {
-      return numPrice.toFixed(2);
-    }
-  }
-  
-  const { display, subscript, digits } = formatSmallNumber(numPrice);
-
-  return (
-    <>
-      {display}
-      {subscript && (
-        <sub style={{ fontSize: '0.7em', verticalAlign: 'middle' }}>{subscript}</sub>
-      )}
-      {digits}
-    </>
-  );
+export function formatTimestamp(timestamp) {
+  if (!timestamp) return 'Not available';
+  const date = new Date(timestamp);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZoneName: 'shortOffset'
+  });
 }

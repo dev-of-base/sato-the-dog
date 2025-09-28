@@ -26,203 +26,96 @@ bot.command('commands', (ctx) => {
     '/whitepaper – Link to whitepaper document'
   );
 });
-bot.command('sato', (ctx) => {
-  ctx.reply('Market Data will appear here');
+bot.command('sato', async (ctx) => {
+  const fetchMarketData = async () => {
+    try {
+      const response = await fetch('https://sato-the-dog-git-development-gemsofbases-projects.vercel.app/api/market-data');
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      console.error('unable to fetch market data', error);
+      return { error: 'Failed to fetch market data' }
+    }
+  }
+
+  const data = await fetchMarketData();
+  const projectData = data.data.data.attributes;
+
+  const caption = `*Sato The Dog* ($SATO)\n
+SATO is a decentralized community-led meme coin born on Base\n
+\`0x5a70be406ce7471a44f0183b8d7091f4ad751db5\`
+  \n📊 *Stats*
+├ USD   *$${shortenPriceUsd(projectData.base_token_price_usd)}*
+├ MC     *${formatLargeNumber(projectData.market_cap_usd)}*
+├ Vol     *${formatLargeNumber(projectData.volume_usd.h24)}*
+└ 24h    *${projectData.price_change_percentage.h24}%*
+  \n🌐 [Website](https://satocto.com)
+  \n👥 *Socials*
+└ ${[
+  `[𝕏](https://x.com/Satothedog)`,
+  `[TG](https://t.me/satothedogcto)`
+].join(' • ')}
+  \n📈 *Chart*
+└ [DT](https://www.dextools.io/app/en/base/pair-explorer/0xd17a8609b5d95a5f49b290c4d787949bfec5279e) | [DS](https://dexscreener.com/base/0xd17a8609b5d95a5f49b290c4d787949bfec5279e) | [GT](https://www.geckoterminal.com/base/pools/0xd17a8609b5d95a5f49b290c4d787949bfec5279e)
+----------------\n${formatTimestamp(data.fetchedAt)}`;
+
+  ctx.replyWithPhoto('https://satocto.com/assets/sato-logo.jpg', {
+    caption: caption,
+    parse_mode: 'Markdown'
+  });
+
 });
 bot.command('chart', async (ctx) => {
   try {
     // Send "generating chart..." message first
-    const loadingMsg = await ctx.reply('📈 Generating SATO chart screenshot...');
+    await ctx.reply('📈 Generating SATO chart...');
     
-    // Try different approaches for chart images
-    const approaches = [
-      // Approach 1: Try QuickChart.io for TradingView-style charts
-      async () => {
-        const quickChartUrl = `https://quickchart.io/chart?c=${encodeURIComponent(JSON.stringify({
-          type: 'line',
-          data: {
-            labels: ['1h', '6h', '24h', '7d'],
-            datasets: [{
-              label: 'SATO Price',
-              data: [0.00001, 0.000012, 0.000015, 0.000018],
-              borderColor: 'rgb(75, 192, 192)',
-              backgroundColor: 'rgba(75, 192, 192, 0.2)'
-            }]
-          },
-          options: {
-            title: {
-              display: true,
-              text: 'SATO Price Chart'
-            },
-            plugins: {
-              title: {
-                display: true,
-                text: 'SATO (Base Network)'
-              }
-            }
-          }
-        }))}&width=800&height=400`;
-        
-        return quickChartUrl;
-      },
-      
-      // Approach 2: Use Chart.js via QuickChart with crypto styling
-      async () => {
-        const cryptoChartUrl = `https://quickchart.io/chart?c=${encodeURIComponent(JSON.stringify({
-          type: 'line',
-          data: {
-            labels: ['24h ago', '18h ago', '12h ago', '6h ago', 'Now'],
-            datasets: [{
-              label: 'SATO/USD',
-              data: [0.000012, 0.000015, 0.000013, 0.000016, 0.000018],
-              borderColor: '#00D4AA',
-              backgroundColor: 'rgba(0, 212, 170, 0.1)',
-              borderWidth: 3,
-              fill: true,
-              tension: 0.4
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: {
-              title: {
-                display: true,
-                text: '📈 SATO Price Chart',
-                font: { size: 18 }
-              },
-              legend: {
-                display: true,
-                position: 'top'
-              }
-            },
-            scales: {
-              y: {
-                beginAtZero: false,
-                title: {
-                  display: true,
-                  text: 'Price (USD)'
-                }
-              },
-              x: {
-                title: {
-                  display: true,
-                  text: 'Time'
-                }
-              }
-            }
-          }
-        }))}&width=900&height=500&backgroundColor=white`;
-        
-        return cryptoChartUrl;
-      },
-      
-      // Approach 3: Fetch actual price data and create chart
-      async () => {
-        try {
-          // Get actual SATO price data from DexScreener API
-          const response = await fetch('https://api.dexscreener.com/latest/dex/tokens/0x5a70be406ce7471a44f0183b8d7091f4ad751db5');
-          const data = await response.json();
-          
-          if (data && data.pairs && data.pairs.length > 0) {
-            const pair = data.pairs[0];
-            const price = parseFloat(pair.priceUsd || 0);
-            const volume24h = pair.volume?.h24 || 0;
-            const priceChange24h = pair.priceChange?.h24 || 0;
-            
-            // Create chart with real data
-            const realDataChartUrl = `https://quickchart.io/chart?c=${encodeURIComponent(JSON.stringify({
-              type: 'doughnut',
-              data: {
-                labels: ['Volume 24h', 'Market Cap', 'Liquidity'],
-                datasets: [{
-                  data: [volume24h, pair.marketCap || 0, pair.liquidity?.usd || 0],
-                  backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
-                }]
-              },
-              options: {
-                responsive: true,
-                plugins: {
-                  title: {
-                    display: true,
-                    text: `📊 SATO Analytics - $${price.toFixed(8)} ${priceChange24h >= 0 ? '📈' : '📉'} ${priceChange24h.toFixed(2)}%`,
-                    font: { size: 16 }
-                  },
-                  legend: {
-                    position: 'bottom'
-                  }
-                }
-              }
-            }))}&width=600&height=400&backgroundColor=white`;
-            
-            return realDataChartUrl;
-          }
-        } catch (error) {
-          console.log('Failed to fetch real data:', error);
-          return null;
-        }
-      }
+    // Try multiple chart image sources
+    const chartSources = [
+      'https://dexscreener.com/base/0xddca7b95eb287493f901ae3ca747b0707c6ef7cd.png',
+      'https://charts.dexscreener.com/base/0xddca7b95eb287493f901ae3ca747b0707c6ef7cd.png',
+      // Backup: GeckoTerminal chart image (if available)
+      'https://www.geckoterminal.com/base/pools/0xd17a8609b5d95a5f49b290c4d787949bfec5279e/chart.png'
     ];
     
     let chartSent = false;
     
-    // Try each approach
-    for (let i = 0; i < approaches.length; i++) {
+    // Try each chart source
+    for (const chartUrl of chartSources) {
       try {
-        const chartUrl = await approaches[i]();
-        if (!chartUrl) continue;
-        
         await ctx.replyWithPhoto(chartUrl, {
           caption: '📈 *SATO Price Chart*\n\n' +
-            '🐕 *Live Market Data:*\n' +
-            '• Contract: `0x5a70be406ce7471a44f0183b8d7091f4ad751db5`\n' +
-            '• Network: Base Chain\n' +
-            '• Real-time price tracking\n' +
-            '• 24/7 market monitoring\n\n' +
-            '🔗 *Quick Links:*\n' +
-            '[📊 DexScreener](https://dexscreener.com/base/0xddca7b95eb287493f901ae3ca747b0707c6ef7cd) | ' +
-            '[🦄 Uniswap](https://app.uniswap.org/swap?outputCurrency=0x5a70be406ce7471a44f0183b8d7091f4ad751db5&chain=base) | ' +
-            '[🦎 CoinGecko](https://www.coingecko.com/en/coins/sato-the-dog)',
+            '🐕 *Live Chart Features:*\n' +
+            '• Real-time price updates\n' +
+            '• Trading volume & liquidity\n' +
+            '• Market cap tracking\n' +
+            '• Transaction history\n\n' +
+            '[📊 Interactive Chart](https://dexscreener.com/base/0xddca7b95eb287493f901ae3ca747b0707c6ef7cd) | ' +
+            '[🦄 Trade Now](https://app.uniswap.org/swap?outputCurrency=0x5a70be406ce7471a44f0183b8d7091f4ad751db5&chain=base)',
           parse_mode: 'Markdown'
         });
-        
         chartSent = true;
         break; // Success, exit loop
-        
       } catch (imageError) {
-        console.log(`Chart approach ${i + 1} failed:`, imageError.message);
-        continue; // Try next approach
+        console.log(`Failed to load chart from ${chartUrl}:`, imageError.message);
+        continue; // Try next source
       }
     }
     
-    // Clean up loading message
-    try {
-      await ctx.api.deleteMessage(ctx.chat.id, loadingMsg.message_id);
-    } catch (deleteError) {
-      // Ignore delete errors
-    }
-    
-    // If no chart worked, send fallback with better formatting
+    // If no image worked, send fallback message
     if (!chartSent) {
-      throw new Error('All chart generation approaches failed');
+      throw new Error('All chart sources failed');
     }
     
   } catch (error) {
     console.error('Chart command error:', error);
-    
-    // Comprehensive fallback with market data
-    const fallbackMessage = '📈 *SATO Chart & Market Data*\n\n' +
-      '🐕 *Token Information:*\n' +
-      '• Symbol: SATO\n' +
-      '• Network: Base Chain\n' +
-      '• Contract: `0x5a70be406ce7471a44f0183b8d7091f4ad751db5`\n\n' +
-      '📊 *Live Charts Available:*\n' +
-      '• [DexScreener](https://dexscreener.com/base/0xddca7b95eb287493f901ae3ca747b0707c6ef7cd) - Real-time price & volume\n' +
-      '• [GeckoTerminal](https://www.geckoterminal.com/base/pools/0xd17a8609b5d95a5f49b290c4d787949bfec5279e) - Advanced analytics\n' +
-      '• [DexTools](https://www.dextools.io/app/en/token/satobase) - Trading insights\n\n' +
-      '💰 *Trade SATO:*\n' +
-      '• [Uniswap](https://app.uniswap.org/swap?outputCurrency=0x5a70be406ce7471a44f0183b8d7091f4ad751db5&chain=base) - DEX Trading\n' +
-      '• [Base App](https://wallet.coinbase.com) - Mobile Trading\n\n' +
-      '_Tap any link above to view live charts, trade, or analyze SATO!_';
+    // Fallback to text message with links
+    const fallbackMessage = '📈 *SATO Chart*\n\n' +
+      '🐕 *Current Chart Links:*\n' +
+      '• [DexScreener Chart](https://dexscreener.com/base/0xddca7b95eb287493f901ae3ca747b0707c6ef7cd)\n' +
+      '• [GeckoTerminal Chart](https://www.geckoterminal.com/base/pools/0xd17a8609b5d95a5f49b290c4d787949bfec5279e)\n' +
+      '• [Trade on Uniswap](https://app.uniswap.org/swap?outputCurrency=0x5a70be406ce7471a44f0183b8d7091f4ad751db5&chain=base)\n\n' +
+      '_Tap any link above to view live charts and market data!_';
     
     await ctx.reply(fallbackMessage, { parse_mode: 'Markdown' });
   }
