@@ -1,4 +1,5 @@
 import { Bot } from 'grammy';
+import { formatLargeNumber,shortenPriceUsd,formatTimestamp } from '../../crypto-functions.js';
 
 // Initialize your bot with the token
 const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN || '');
