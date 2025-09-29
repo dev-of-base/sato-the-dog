@@ -5,6 +5,7 @@ import { track } from '@vercel/analytics';
 
 export default function AudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -15,6 +16,34 @@ export default function AudioPlayer() {
     audio.loop = true;
     audio.volume = 0.3; // Set volume to 30%
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleSmoothScroll = (e, href) => {
+    // Only handle internal links (starting with #)
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        const navbarHeight = 80; // Approximate navbar height
+        const targetPosition = targetElement.offsetTop - navbarHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
 
   const toggleAudio = () => {
 
@@ -35,7 +64,7 @@ export default function AudioPlayer() {
   };
 
   return (
-    <div className="fixed top-2 lg:top-6 right-4 z-50">
+    <div className={`fixed right-4 z-40 transition-all duration-300 ${scrolled ? 'top-2' : 'top-6 lg:top-10'}`}>
       <audio
         ref={audioRef}
         src="/sato-audio-theme.mp3"

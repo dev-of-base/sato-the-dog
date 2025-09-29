@@ -22,6 +22,14 @@ body {
   font-family: var(--font-inter), sans-serif;
 }
 
+.font-poppins {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.font-baloo {
+  font-family: var(--font-baloo), sans-serif;
+}
+
 .social-button {
   @apply p-3 rounded-full hover:scale-105 transition-transform bg-white/50;
 }

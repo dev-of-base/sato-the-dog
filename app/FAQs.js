@@ -14,7 +14,7 @@ export default function FAQs() {
     {
       id: 2,
       question: "Where can I trade SATO?",
-      answer: "Right now, SATO can be traded on Uniswap (Base network). You can also access it directly through the Base app (previously Coinbase Wallet). Both options give you easy, decentralized access to buying and selling SATO."
+      answer: "Right now, SATO can be traded on Uniswap (Base network) or GroveX centralized exchange. You can also access it directly through the Base app (previously Coinbase Wallet)."
     },
     {
       id: 3,

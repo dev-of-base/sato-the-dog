@@ -14,11 +14,14 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "bot:test": "node scripts/test-bot.js"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
     "@icons-pack/react-simple-icons": "^13.7.0",
     "@vercel/analytics": "^1.5.0",
+    "dotenv": "^17.2.2",
     "grammy": "^1.38.2",
     "next": "15.5.2",
     "postcss": "^8.5.6",
