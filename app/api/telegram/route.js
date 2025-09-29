@@ -4,6 +4,28 @@ import { formatLargeNumber,shortenPriceUsd,formatTimestamp } from '../../crypto-
 // Initialize your bot with the token
 const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN || '');
 
+const fetchMarketData = async () => {
+  try {
+    const response = await fetch(
+      'https://satocto.com/api/market-data',
+      { 
+        headers: {
+          'Accept': 'application/json',
+          'User-Agent': 'SatoBot/1.0'
+        }
+      }
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error('unable to fetch market data', error);
+    return { error: 'Failed to fetch market data' }
+  }
+}
+
 // Set up your bot handlers
 bot.command('start', (ctx) => {
   console.log(`/start command from ${ctx.from?.username || ctx.from?.first_name}`);
