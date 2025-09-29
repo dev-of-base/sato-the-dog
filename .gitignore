@@ -12,8 +12,8 @@
 
 # testing
 /coverage
-TELEGRAM_BOT.md
 scripts/test-bot.js
+TELEGRAM_BOT.md
 
 # next.js
 /.next/
