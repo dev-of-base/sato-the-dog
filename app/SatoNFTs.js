@@ -6,7 +6,7 @@ export default function SatoNFTs() {
       {/* Background Image */}
       <div className="absolute inset-0 bg-black">
         <Image
-          src="/assets/SATO-nft-section-img.png"
+          src="/gallery/sato_punch.webp"
           alt="Sato Punch Background"
           fill
           className="object-cover opacity-50"
