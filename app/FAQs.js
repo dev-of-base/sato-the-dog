@@ -24,12 +24,12 @@ export default function FAQs() {
     {
       id: 4,
       question: "What are the SATO NFTs?",
-      answer: "Originally, around 5,000 NFTs were launched by the old team. After everything that happened, we decided to create a new 100-piece limited collection — dedicated to the loyal holders who stood by SATO and are helping rebuild the project. These special NFTs are coming very soon."
+      answer: "Originally, around 5,000 NFTs were launched by the old team. After everything that happened, we decided to create a new 100-piece limited collection — dedicated to the loyal holders who stood by SATO and are helping rebuild the project. These special NFTs are now available on OpenSea."
     },
     {
       id: 5,
       question: "What is the Woof DAO?",
-      answer: "The Woof DAO is SATO’s community-driven governance system. While it’s not fully official yet, the treasury is managed through a multi-signature wallet, decisions are made transparently, and holders can take part through polls and proposals."
+      answer: "The Woof DAO is SATO's community-driven governance system. While it's not fully official yet, the treasury is managed through a multi-signature wallet, decisions are made transparently, and holders can take part through polls and proposals."
     }
   ];
 
