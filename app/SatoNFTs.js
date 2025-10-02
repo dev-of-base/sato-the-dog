@@ -32,6 +32,21 @@ export default function SatoNFTs() {
               we decided to create a new 100-piece limited collection — dedicated to the loyal holders who 
               stood by SATO and are helping rebuild the project.
             </p>
+          {/* NFT Showcase Video */}
+          <div className="flex justify-center mb-8">
+            <video 
+              className="rounded-xl shadow-lg max-w-full h-auto"
+              width="400"
+              height="300"
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src="/assets/SATO_nft_showcase.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
             <p className="font-inter text-gray-700 leading-relaxed text-base sm:text-lg md:text-xl text-center font-semibold">
               These special NFTs are now available on OpenSea.<br />Find your favorite & join the club 🐾
             </p>
