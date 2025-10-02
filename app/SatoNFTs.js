@@ -58,9 +58,16 @@ export default function SatoNFTs() {
               href="https://opensea.io/collection/sato-100-limited-collection/explore"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gray-800 hover:bg-gray-700 text-white font-cherry-bomb-one test-lg md:text-xl px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg inline-block text-center"
+              className="bg-gray-800 hover:bg-gray-700 text-white font-cherry-bomb-one text-lg md:text-xl px-4 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg inline-flex items-center gap-2 text-center"
             >
-              Explore on OpenSea ⧉
+              Explore on OpenSea 
+              <Image
+                src="/assets/opensea-icon.svg"
+                alt="OpenSea"
+                width={30}
+                height={30}
+                className="inline-block w-[25px] h-[25px]"
+              />
             </a>
           </div>
         </div>
