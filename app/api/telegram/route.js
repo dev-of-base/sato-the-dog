@@ -97,7 +97,7 @@ SATO is a decentralized community-led meme coin born on Base\n
 ----------------\n${data.fetchedAt ? formatTimestamp(data.fetchedAt) : '--'}`;
 
     try {
-      await ctx.replyWithPhoto('https://satocto.com/assets/sato-logo.jpg', {
+      await ctx.replyWithPhoto('https://satocto.com/telegram/sato-the-dog-card.png', {
         caption: caption,
         parse_mode: 'Markdown'
       });
