@@ -319,23 +319,19 @@ bot.command('joke', (ctx) => {
   console.log(`/joke command from ${ctx.from?.username || ctx.from?.first_name}`);
   
   const dogJokes = [
-    "Why don't dogs make good DJs? Because they have such ruff beats! 🎵",
-    "What happens when it rains cats and dogs? You might step in a poodle! 💧",
-    "Why did the dog go to the bank? To make a de-paws-it! 🏦",
-    "What do you call a sleeping bull dog? A bull-dozer! 😴",
-    "Why don't dogs ever pay for dinner? Because they never have any money, they only have paws! 💳",
-    "What did the dog say when it sat on sandpaper? Ruff! 📜",
-    "Why do dogs run in circles? Because they're round hounds! 🔄",
-    "What do you get when you cross a dog and a calculator? A friend you can count on! 🧮",
-    "Why did the dog wear white socks? Because it couldn't find any that fit its paws! 🧦",
-    "What do you call a dog that can do magic? A labra-cadabra-dor! 🎩",
-    "Why don't dogs make good comedians? Their jokes are too ruff around the edges! 😂",
-    "What's a dog's favorite type of pizza? Pupperoni! 🍕",
-    "Why did the dog join a band? Because it had perfect pitch... and could really howl! 🎸",
-    "What do you call a dog working as a magician? A labracadabrador! ✨",
-    "Why don't dogs ever get lost? They always nose their way home! 👃",
-    "What did the dog say to the tree? Bark! 🌳",
-    "Why are dogs such good storytellers? Because they have such great tails! 📚"
+    "Why don't dogs make good DJs?\nBecause they have such ruff beats!",
+    "What happens when it rains cats and dogs?\nYou might step in a poodle!",
+    "Why did the dog go to the bank?\nTo make a de-paws-it!",
+    "What do you call a sleeping bull dog?\nA bull-dozer!",
+    "What did the dog say when it sat on sandpaper?\nRuff!",
+    "Why do dogs run in circles?\nBecause they're round hounds!",
+    "What do you get when you cross a dog and a calculator?\nA friend you can count on!",
+    "What do you call a dog that can do magic?\nA labra-cadabra-dor!",
+    "Why don't dogs make good comedians?\nTheir jokes are too ruff around the edges!",
+    "What's a dog's favorite type of pizza?\nPupperoni!",
+    "Why don't dogs ever get lost?\nThey always nose their way home!",
+    "What did the dog say to the tree?\nBark!",
+    "Why are dogs such good storytellers?\nBecause they have such great tails!"
   ];
 
   // Get a random joke
@@ -377,7 +373,7 @@ bot.command('image', (ctx) => {
   const randomImage = satoImages[randomIndex];
   const imageUrl = `https://satocto.com${randomImage.src}`;
   
-  const caption = `*🖼️ Random SATO Image*\n\n${randomImage.alt}\n\n*Check out our full gallery at https://satocto.com/#gallery 🎨*`;
+  const caption = `*🖼️ SATO Image*\n\n${randomImage.alt}\n\n*Check out our full gallery at https://satocto.com/#gallery 🎨*`;
 
   try {
     ctx.replyWithPhoto(imageUrl, {
@@ -393,10 +389,10 @@ bot.command('goodboy', (ctx) => {
   console.log(`/goodboy command from ${ctx.from?.username || ctx.from?.first_name}`);
   
   const thankYouResponses = [
-    "Woof woof! 🐕",
-    "*Wags tail* 🐕",
+    "*Woof woof!* 🐕",
+    "_Wags tail_ 🐕",
     "*Happy barks* 🐕",
-    "Ruff ruff! *Rolls over* 🐕"
+    "*Ruff ruff!* _Rolls over_ 🐕"
   ];
 
   // Get a random thank you response
