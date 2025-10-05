@@ -346,7 +346,7 @@ bot.command('image', (ctx) => {
   console.log(`/image command from ${ctx.from?.username || ctx.from?.first_name}`);
   
   const satoImages = [
-    { src: "/gallery/A1.png", alt: "Sato Artwork A1" },
+    { src: "/gallery/sato_vs_bear.png", alt: "Sato vs bear" },
     { src: "/gallery/campfire_scene.webp", alt: "Sato Campfire Scene" },
     { src: "/gallery/moon_scene.webp", alt: "Sato Moon Scene" },
     { src: "/gallery/sato_cliff_sunset.webp", alt: "Sato Cliff Sunset" },
@@ -373,7 +373,7 @@ bot.command('image', (ctx) => {
   const randomImage = satoImages[randomIndex];
   const imageUrl = `https://satocto.com${randomImage.src}`;
   
-  const caption = `*🖼️ SATO Image*\n\n${randomImage.alt}\n\n*Check out our full gallery at https://satocto.com/#gallery 🎨*`;
+  const caption = `*🖼️ ${randomImage.alt}\n\n*Check out our full gallery at https://satocto.com/#gallery 🎨*`;
 
   try {
     ctx.replyWithPhoto(imageUrl, {
@@ -382,7 +382,7 @@ bot.command('image', (ctx) => {
     });
   } catch (error) {
     console.error('Failed to send random image:', error);
-    ctx.reply(`*🖼️ Here's a random SATO Image*\n\n${randomImage.alt}\n\n[View Image](${imageUrl})\n\n*Check out our full gallery at https://satocto.com/#gallery 🎨*`, { parse_mode: 'Markdown' });
+    ctx.reply(`*🖼️ ${randomImage.alt}\n\n[View Image](${imageUrl})\n\n*Check out our full gallery at https://satocto.com/#gallery 🎨*`, { parse_mode: 'Markdown' });
   }
 });
 bot.command('goodboy', (ctx) => {

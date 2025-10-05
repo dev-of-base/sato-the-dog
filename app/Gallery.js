@@ -56,7 +56,7 @@ export default function GalleryImages() {
   }, [isModalOpen]);
   // Actual artwork data with real images
   const artworkImages = [
-    { id: 1, src: "/gallery/A1.png", alt: "Sato Artwork A1", type: "square" },
+    { id: 1, src: "/gallery/sato_vs_bear.png", alt: "Sato vs Bear", type: "square" },
     { id: 2, src: "/gallery/campfire_scene.webp", alt: "Sato Campfire Scene", type: "portrait" },
     { id: 3, src: "/gallery/moon_scene.webp", alt: "Sato Moon Scene", type: "portrait" },
     { id: 4, src: "/gallery/sato_cliff_sunset.webp", alt: "Sato Cliff Sunset", type: "portrait" },
