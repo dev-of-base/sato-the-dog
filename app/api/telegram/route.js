@@ -26,7 +26,7 @@ const fetchMarketData = async () => {
   }
 }
 
-// Set up your bot handlers
+// Bot handlers
 bot.command('start', (ctx) => {
   console.log(`/start command from ${ctx.from?.username || ctx.from?.first_name}`);
   ctx.reply('Woof! I am your friendly guide bot. Type /commands to see what tricks I can do! 🐕');
@@ -35,11 +35,10 @@ bot.command('commands', (ctx) => {
   console.log(`/commands command from ${ctx.from?.username || ctx.from?.first_name}`);
   ctx.reply(
     '📊 *Project / Market Data*\n' +
-    '/sato – Show current project info + market data (price, volume, market cap, links)\n' +
+    '/sato – Show current project info + market data\n' +
     '/about – Info about the project\n' +
-    '/stats – Show token stats (holders, liquidity, supply, etc.)\n' +
+    '/stats – Show detailed stats (market data, price changes, volume, etc.)\n' +
     '/links – Official links (website, socials, listings)\n' +
-    '/vote – See where to upvote Sato (Coingecko, Dexscreener, Gems of Base)\n' +
     '/faq – Frequently asked questions\n' +
     '/whitepaper – Link to whitepaper document\n\n' +
     '🐶 *Dog Personality / Fun Commands*\n' +
@@ -168,7 +167,7 @@ bot.command('stats', async (ctx) => {
     const sellVolume24h = projectData.sell_volume_usd?.h24;
 
     const caption = `*$SATO Market Stats*\n
-  \`0x5a70be406ce7471a44f0183b8d7091f4ad751db5\`
+\`0x5a70be406ce7471a44f0183b8d7091f4ad751db5\`
 
 💰 *Price & Market*
 ├ Price   *$${projectData.base_token_price_usd ? shortenPriceUsd(projectData.base_token_price_usd) : '--'}*
@@ -227,17 +226,12 @@ bot.command('links', (ctx) => {
 └ [GMGN](https://gmgn.ai/base/token/7WKDcuxn_0x5a70be406ce7471a44f0183b8d7091f4ad751db5)\n
 🏦 *Centralized Exchanges*
 └ [GroveX](https://www.grovex.io/en_US/trade/SATO_USDT)\n
+🖼️ *NFT Collection*
+└ [OpenSea](https://opensea.io/collection/sato-100-limited-collection/explore)\n
 📊 *Listings & Data*
 ├ [CoinMarketCap](https://coinmarketcap.com/currencies/sato-the-dog/)
 ├ [CoinGecko](https://www.coingecko.com/en/coins/sato-the-dog)
 └ [Gems of Base](https://gemsofbase.com/projects/sato-the-dog)`;
-
-  ctx.reply(caption, { parse_mode: 'Markdown' });
-});
-bot.command('vote', (ctx) => {
-  console.log(`/vote command from ${ctx.from?.username || ctx.from?.first_name}`);
-  
-  const caption = `*☝️ Vote for Sato*\n`;
 
   ctx.reply(caption, { parse_mode: 'Markdown' });
 });
@@ -258,7 +252,7 @@ bot.command('faq', (ctx) => {
     {
       id: 3,
       question: "What are the SATO NFTs?",
-      answer: "Originally, around 5,000 NFTs were launched by the old team. After everything that happened, we decided to create a new 100-piece limited collection — dedicated to the loyal holders who stood by SATO and are helping rebuild the project. These special NFTs are coming very soon."
+      answer: "Originally, around 5,000 NFTs were launched by the old team. After everything that happened, we decided to create a new 100-piece limited collection — dedicated to the loyal holders who stood by SATO and are helping rebuild the project. These special NFTs are now available on OpenSea."
     },
     {
       id: 4,
@@ -376,17 +370,9 @@ bot.command('goodboy', (ctx) => {
   const randomIndex = Math.floor(Math.random() * thankYouResponses.length);
   const randomResponse = thankYouResponses[randomIndex];
   
-  const caption = `*${randomResponse}*\n\n*Keep being pawsome, and thanks for supporting the SATO community! 🌟*`;
+  const caption = `*${randomResponse}*`;
 
   ctx.reply(caption, { parse_mode: 'Markdown' });
-});
-
-bot.on('message:text', (ctx) => {
-  const message = ctx.message.text.toLowerCase();
-  
-  if (message.includes('woof') || message.includes('bark')) {
-    ctx.reply("Woof!");
-  }
 });
 
 // Error handling
