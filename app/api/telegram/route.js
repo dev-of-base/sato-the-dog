@@ -39,6 +39,7 @@ bot.command('commands', (ctx) => {
     '/about – Info about the project\n' +
     '/stats – Show detailed stats (market data, price changes, volume, etc.)\n' +
     '/links – Official links (website, socials, listings)\n' +
+    '/nft – NFT Collection info\n' +
     '/faq – Frequently asked questions\n' +
     '/whitepaper – Link to whitepaper document\n\n' +
     '🐶 *Dog Personality / Fun Commands*\n' +
@@ -110,7 +111,7 @@ SATO is a decentralized community-led meme coin born on Base\n
     ctx.reply('🐕 Woof! Something went wrong. Please try again later.');
   }
 });
-bot.command('about', (ctx) => {
+bot.command('about', async (ctx) => {
   console.log(`/about command from ${ctx.from?.username || ctx.from?.first_name}`);
 
   const caption = `*About SATO*\n
@@ -118,10 +119,16 @@ SATO is a decentralized meme coin born on the Base network and originally launch
 Today, SATO is in the hands of its community. No central authority, no hidden agenda - just a shared vision and commitment to giving this meme coin a new life through creativity, transparency, and decentralized coordination.\n
 Find out more - visit our [Website](https://satocto.com)`
 
-  ctx.replyWithPhoto('https://satocto.com/assets/sato-logo.jpg',{
+  try {
+    await ctx.replyWithPhoto('https://satocto.com/assets/about-sato.jpg',{
     caption: caption,
     parse_mode: 'Markdown'
-  })
+  }) } catch (imageError) {
+    console.error('Failed to send image:', imageError);
+    await ctx.reply(caption, {
+      parse_mode: 'Markdown'
+    })
+  }
 });
 bot.command('stats', async (ctx) => {
   console.log(`/stats command from ${ctx.from?.username || ctx.from?.first_name}`);
@@ -207,7 +214,7 @@ bot.command('stats', async (ctx) => {
     ctx.reply('🐕 Woof! Something went wrong. Please try again later.');
   }
 });
-bot.command('links', (ctx) => {
+bot.command('links', async (ctx) => {
   console.log(`/links command from ${ctx.from?.username || ctx.from?.first_name}`);
   
   const caption = `*🔗 Official Links*\n
@@ -233,7 +240,33 @@ bot.command('links', (ctx) => {
 ├ [CoinGecko](https://www.coingecko.com/en/coins/sato-the-dog)
 └ [Gems of Base](https://gemsofbase.com/projects/sato-the-dog)`;
 
-  ctx.reply(caption, { parse_mode: 'Markdown' });
+  try {
+    await ctx.replyWithPhoto('https://satocto.com/telegram/sato-links.jpg', {
+      caption: caption,
+      parse_mode: 'Markdown'
+    });
+  } catch (imageError) {
+    console.error('Failed to send image:', imageError);
+    await ctx.reply(caption, { parse_mode: 'Markdown' });
+  }
+});
+bot.command('nft', async (ctx) => {
+  console.log(`/nft command from ${ctx.from?.username || ctx.from?.first_name}`);
+  
+  const caption = `*SATO NFTs*\n
+Originally, around 5,000 NFTs were launched by the old team. After everything that happened, we decided to create a new 100-piece limited collection — dedicated to the loyal holders who stood by SATO and are helping rebuild the project.
+These special NFTs are now available on OpenSea. Find your favorite & join the club 🐾\n
+🔗 https://opensea.io/collection/sato-100-limited-collection/explore`;
+
+  try {
+    await ctx.replyWithVideo('https://satocto.com/assets/SATO_nft_showcase.mp4', {
+      caption: caption,
+      parse_mode: 'Markdown'
+    });
+  } catch (videoError) {
+    console.error('Failed to send video:', videoError);
+    await ctx.reply(caption, { parse_mode: 'Markdown' });
+  }
 });
 bot.command('faq', (ctx) => {
   console.log(`/faq command from ${ctx.from?.username || ctx.from?.first_name}`);
