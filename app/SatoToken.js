@@ -174,7 +174,7 @@ export default function SatoToken() {
             />
           </a>
           <a
-            href="https://www.dextools.io/app/en/token/satobase"
+            href="https://www.dextools.io/token/satothedog"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:scale-110 transition-transform duration-200 flex-shrink-0"
