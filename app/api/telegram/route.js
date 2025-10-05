@@ -120,7 +120,7 @@ Today, SATO is in the hands of its community. No central authority, no hidden ag
 Find out more - visit our [Website](https://satocto.com)`
 
   try {
-    await ctx.replyWithPhoto('https://satocto.com/assets/about-sato.jpg',{
+    await ctx.replyWithPhoto('https://satocto.com/telegram/about-sato.jpg',{
     caption: caption,
     parse_mode: 'Markdown'
   }) } catch (imageError) {
@@ -253,8 +253,8 @@ bot.command('links', async (ctx) => {
 bot.command('nft', async (ctx) => {
   console.log(`/nft command from ${ctx.from?.username || ctx.from?.first_name}`);
   
-  const caption = `*SATO NFTs*\n
-Originally, around 5,000 NFTs were launched by the old team. After everything that happened, we decided to create a new 100-piece limited collection — dedicated to the loyal holders who stood by SATO and are helping rebuild the project.
+  const caption = `*SATO 100 Limited Collection*\n
+Originally, around 5,000 NFTs were launched by the old team. After everything that happened, we decided to create a new 100-piece limited collection — dedicated to the loyal holders who stood by SATO and are helping rebuild the project.\n
 These special NFTs are now available on OpenSea. Find your favorite & join the club 🐾\n
 🔗 https://opensea.io/collection/sato-100-limited-collection/explore`;
 
