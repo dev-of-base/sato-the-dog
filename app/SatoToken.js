@@ -32,7 +32,7 @@ export default function SatoToken() {
         />
       </div>
       <p className="text-center font-inter text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">
-        SATO is designed to be clean and fair. With no hidden mechanics or unfair allocations, it's a pure meme coin, entirely owned by the people.
+        SATO is designed to be clean and fair. With no hidden mechanics or unfair allocations, it&apos;s a pure meme coin, entirely owned by the people.
       </p>
       <div className="border-2 border-gray-200 rounded-2xl mt-4 p-4 md:p-6 shadow-xl max-w-2xl w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
