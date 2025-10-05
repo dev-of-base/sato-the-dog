@@ -1,3 +1,5 @@
+import { compat } from "@eslint/compat";
+
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals"),
   {
