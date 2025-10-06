@@ -148,7 +148,7 @@ export default function SatoToken() {
           </div>
           <div className="flex flex-wrap pt-4 items-center justify-center gap-4 sm:gap-6 md:gap-8">
           <a
-            href="https://www.geckoterminal.com/ru/base/pools/0xd17a8609b5d95a5f49b290c4d787949bfec5279e"
+            href="https://www.geckoterminal.com/base/pools/0xd17a8609b5d95a5f49b290c4d787949bfec5279e"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:scale-110 transition-transform duration-200 flex-shrink-0"
@@ -174,7 +174,7 @@ export default function SatoToken() {
             />
           </a>
           <a
-            href="https://www.dextools.io/token/satothedog"
+            href="https://www.dextools.io/token/satobase"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:scale-110 transition-transform duration-200 flex-shrink-0"
