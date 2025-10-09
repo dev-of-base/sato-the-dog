@@ -16,6 +16,7 @@ import {
   SiReddit
 } from '@icons-pack/react-simple-icons';
 import Gallery from "./Gallery";
+import SatoVideoAnimation from "./SatoVideoAnimation";
 
 export default function Home() {
   return (
@@ -72,13 +73,7 @@ export default function Home() {
                 <SiFacebook className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9" color="default" />
             </a>
           </div>
-        <Image
-          src="/assets/sato_logo_transparent.png"
-          alt="Sato the Dog"
-          width={600}
-          height={600}
-          className="mx-auto px-16"
-        />
+        <SatoVideoAnimation />
       </div>
       {/* About Sato */}
       <About />
