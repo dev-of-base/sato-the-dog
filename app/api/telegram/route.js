@@ -136,7 +136,7 @@ SATO is a decentralized community-led meme coin born on Base\n
 ].join(' • ')}
   \n📈 *Chart*
 └ [DT](https://www.dextools.io/app/en/base/pair-explorer/0xd17a8609b5d95a5f49b290c4d787949bfec5279e) | [DS](https://dexscreener.com/base/0xd17a8609b5d95a5f49b290c4d787949bfec5279e) | [GT](https://www.geckoterminal.com/base/pools/0xd17a8609b5d95a5f49b290c4d787949bfec5279e)
-----------------\n${data.fetchedAt ? formatTimestamp(data.fetchedAt) : '--'}`;
+----------------\n${data.fetchedAt ? formatTimestamp(data.fetchedAt) : data.cachedAt ? formatTimestamp(data.cachedAt) : '--'}`;
 
     try {
       await ctx.replyWithPhoto('https://satocto.com/telegram/sato-the-dog-card.png', {
@@ -162,7 +162,7 @@ Today, SATO is in the hands of its community. No central authority, no hidden ag
 Find out more - visit our [Website](https://satocto.com)`
 
   try {
-    await ctx.replyWithPhoto('https://satocto.com/telegram/about-sato.jpg',{
+    await ctx.replyWithPhoto('https://satocto.com/telegram/about-sato-the-dog.jpg',{
     caption: caption,
     parse_mode: 'Markdown'
   }) } catch (imageError) {
@@ -239,7 +239,7 @@ bot.command('stats', async (ctx) => {
 
 📈 *Chart*
 └ [DT](https://www.dextools.io/app/en/base/pair-explorer/0xd17a8609b5d95a5f49b290c4d787949bfec5279e) | [DS](https://dexscreener.com/base/0xd17a8609b5d95a5f49b290c4d787949bfec5279e) | [GT](https://www.geckoterminal.com/base/pools/0xd17a8609b5d95a5f49b290c4d787949bfec5279e)
-----------------\n${data.fetchedAt ? formatTimestamp(data.fetchedAt) : '--'}`;
+----------------\n${data.fetchedAt ? formatTimestamp(data.fetchedAt) : data.cachedAt ? formatTimestamp(data.cachedAt) : '--'}`;
 
     try {
       await ctx.replyWithPhoto('https://satocto.com/telegram/sato_chart_button.jpg', {
