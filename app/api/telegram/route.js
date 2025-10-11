@@ -8,6 +8,31 @@ if (!process.env.TELEGRAM_BOT_TOKEN) {
   throw new Error('TELEGRAM_BOT_TOKEN environment variable is required');
 }
 
+// Add rate limiting
+const rateLimitMap = new Map();
+
+bot.use(async (ctx, next) => {
+  const userId = ctx.from?.id;
+  if (!userId) return next();
+
+  const now = Date.now();
+  const userLimit = rateLimitMap.get(userId) || { count: 0, resetTime: now + 60000 };
+
+  if (now > userLimit.resetTime) {
+    userLimit.count = 0;
+    userLimit.resetTime = now + 60000;
+  }
+
+  if (userLimit.count >= 10) { // 10 commands per minute
+    return ctx.reply('⚠️ Too many requests. Please wait a moment.');
+  }
+
+  userLimit.count++;
+  rateLimitMap.set(userId, userLimit);
+  
+  return next();
+});
+
 const fetchMarketData = async () => {
   try {
     const apiUrl = process.env.MARKET_DATA_API || 'https://satocto.com/api/market-data';
