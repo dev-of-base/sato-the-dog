@@ -2,27 +2,44 @@ import { Bot } from 'grammy';
 import { formatLargeNumber,shortenPriceUsd,formatTimestamp } from '../../crypto-functions.js';
 
 // Initialize your bot with the token
-const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN || '');
+const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN);
+
+if (!process.env.TELEGRAM_BOT_TOKEN) {
+  throw new Error('TELEGRAM_BOT_TOKEN environment variable is required');
+}
 
 const fetchMarketData = async () => {
   try {
+    const apiUrl = process.env.MARKET_DATA_API || 'https://satocto.com/api/market-data';
+    
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+
     const response = await fetch(
-      'https://satocto.com/api/market-data',
+      apiUrl,
       { 
         headers: {
           'Accept': 'application/json',
           'User-Agent': 'SatoBot/1.0'
-        }
+        },
+        signal: controller.signal
       }
     );
+    
+    clearTimeout(timeoutId);
+    
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
     const result = await response.json();
     return result;
   } catch (error) {
+    if (error.name === 'AbortError') {
+      console.error('API request timeout');
+      return { error: 'Request timeout' };
+    }
     console.error('unable to fetch market data', error);
-    return { error: 'Failed to fetch market data' }
+    return { error: 'Failed to fetch market data' };
   }
 }
 
@@ -415,6 +432,15 @@ let botInitialized = false;
 // Manual webhook handler for Next.js App Router
 export async function POST(request) {
   try {
+    // Verify the request is from Telegram
+    const secretToken = process.env.TELEGRAM_WEBHOOK_SECRET;
+    if (secretToken) {
+      const receivedToken = request.headers.get('X-Telegram-Bot-Api-Secret-Token');
+      if (receivedToken !== secretToken) {
+        return new Response('Unauthorized', { status: 401 });
+      }
+    }
+
     // Initialize bot if not already done
     if (!botInitialized) {
       await bot.init();
@@ -422,6 +448,11 @@ export async function POST(request) {
     }
 
     const body = await request.json();
+
+    // Validate Telegram update structure
+    if (!body || typeof body !== 'object' || !body.update_id) {
+      return new Response('Invalid update format', { status: 400 });
+    }
     
     // Process the update with Grammy
     await bot.handleUpdate(body);
