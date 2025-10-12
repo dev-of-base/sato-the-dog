@@ -34,7 +34,7 @@ export default function SatoToken() {
       <p className="text-center font-inter text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">
         SATO is designed to be clean and fair. With no hidden mechanics or unfair allocations, it&apos;s a pure meme coin, entirely owned by the people.
       </p>
-      <div className="border-2 border-gray-200 rounded-2xl mt-4 p-4 md:p-6 shadow-xl max-w-2xl w-full">
+      <div className="rounded-2xl mt-4 p-0 sm:p-4 md:p-6 md:shadow-xl max-w-2xl w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
           <div className="flex items-center">
             <span className="font-semibold text-gray-100 mr-2">Network:</span>
@@ -42,27 +42,35 @@ export default function SatoToken() {
           </div>
           <div className="flex items-center">
             <span className="font-semibold text-gray-100 mr-2">Total Supply:</span>
-            <span className="text-gray-300">100% in circulation</span>
+            <span className="text-gray-300">420.69B</span>
           </div>
           <div className="flex items-center">
-            <span className="font-semibold text-gray-100 mr-2">Mint Function:</span>
-            <span className="text-gray-300">None</span>
+            <span className="font-semibold text-gray-100 mr-2">Name:</span>
+            <span className="text-gray-300">Sato The Dog</span>
+          </div>
+          <div className="flex items-center">
+            <span className="font-semibold text-gray-100 mr-2">Circulating Supply:</span>
+            <span className="text-gray-300">100%</span>
+          </div>
+          <div className="flex items-center">
+            <span className="font-semibold text-gray-100 mr-2">Ticker:</span>
+            <span className="text-gray-300">$SATO</span>
           </div>
           <div className="flex items-center">
             <span className="font-semibold text-gray-100 mr-2">Taxes:</span>
-            <span className="text-gray-300">None</span>
+            <span className="text-gray-300">0% buy / 0% sell</span>
           </div>
           <div className="flex items-center">
             <span className="font-semibold text-gray-100 mr-2">Ownership:</span>
             <span className="text-gray-300">Renounced</span>
           </div>
           <div className="flex items-center">
-            <span className="font-semibold text-gray-100 mr-2">Dev Wallets:</span>
-            <span className="text-gray-300">None</span>
+            <span className="font-semibold text-gray-100 mr-2">Liquidity:</span>
+            <span className="text-gray-300">Burnt</span>
           </div>
         </div>
       </div>
-      <div className="border-2 border-gray-200 rounded-2xl mt-4 p-2 sm:p-4 md:p-6 shadow-xl max-w-2xl w-full">
+      <div className="rounded-2xl mt-4 p-0 sm:p-4 md:p-6 md:shadow-xl max-w-2xl w-full">
         <div className="flex-1 min-w-0 w-full">
           <p className="text-xs text-gray-500 mb-2 ms-2 uppercase tracking-wide font-semibold">
             Base Contract Address
@@ -209,6 +217,26 @@ export default function SatoToken() {
             <img 
               src="/assets/gmgn-icon.png" 
               alt="GMGN" 
+              className="h-8 w-auto md:h-10"
+            />
+          </a>
+        </div>
+      </div>
+      <div className="p-2 sm:p-4 md:p-6 w-full">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl pt-4 pb-8 text-gray-100 drop-shadow-lg text-center">
+          SATO is also listed on the following Centralized Exchanges
+        </h2>
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 md:gap-8">
+          <a
+            href="https://www.grovex.io/en_US/trade/SATO_USDT"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform duration-200 flex-shrink-0"
+            title="GroveX"
+          >
+            <img 
+              src="/assets/grovex-logo.svg" 
+              alt="GroveX" 
               className="h-8 w-auto md:h-10"
             />
           </a>
