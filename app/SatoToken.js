@@ -19,7 +19,7 @@ export default function SatoToken() {
 
   return (
     <section id="sato-token" className="w-full flex flex-col items-center justify-center bg-gray-800 py-6 px-2">
-      <div className="flex items-center justify-center gap-4 mb-6 sm:mb-12">
+      <div className="flex items-center justify-center gap-4 mb-6 sm:mb-10">
         <h2 className="font-cherry-bomb-one text-4xl sm:text-5xl lg:text-6xl text-gray-100 drop-shadow-lg text-center">
           $SATO Token
         </h2>
@@ -36,35 +36,35 @@ export default function SatoToken() {
       </p>
       <div className="rounded-2xl mt-4 p-0 sm:p-4 md:p-6 md:shadow-xl max-w-2xl w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
-          <div className="flex items-center">
+          <div className="flex items-center order-1">
             <span className="font-semibold text-gray-100 mr-2">Network:</span>
             <span className="text-gray-300">Base</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center order-4 sm:order-2">
             <span className="font-semibold text-gray-100 mr-2">Total Supply:</span>
             <span className="text-gray-300">420.69B</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center order-2 sm:order-3">
             <span className="font-semibold text-gray-100 mr-2">Name:</span>
             <span className="text-gray-300">Sato The Dog</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center order-5 sm:order-4">
             <span className="font-semibold text-gray-100 mr-2">Circulating Supply:</span>
             <span className="text-gray-300">100%</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center order-3 sm:order-5">
             <span className="font-semibold text-gray-100 mr-2">Ticker:</span>
             <span className="text-gray-300">$SATO</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center order-6">
             <span className="font-semibold text-gray-100 mr-2">Taxes:</span>
             <span className="text-gray-300">0% buy / 0% sell</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center order-7">
             <span className="font-semibold text-gray-100 mr-2">Ownership:</span>
             <span className="text-gray-300">Renounced</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center order-8">
             <span className="font-semibold text-gray-100 mr-2">Liquidity:</span>
             <span className="text-gray-300">Burnt</span>
           </div>
@@ -153,8 +153,8 @@ export default function SatoToken() {
               className="h-8 w-auto md:h-10"
             />
           </a>
-          </div>
-          <div className="flex flex-wrap pt-4 items-center justify-center gap-4 sm:gap-6 md:gap-8">
+        </div>
+        <div className="flex flex-wrap pt-4 items-center justify-center gap-4 sm:gap-6 md:gap-8">
           <a
             href="https://www.geckoterminal.com/base/pools/0xd17a8609b5d95a5f49b290c4d787949bfec5279e"
             target="_blank"
