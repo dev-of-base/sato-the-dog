@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Tooltip from './Tooltip';
-import { CurrencyDollarIcon, ChartBarIcon, ArrowTrendingUpIcon, ArrowTrendingDownIcon } from '@heroicons/react/24/solid';
-import { formatSmallNumber } from './crypto-functions';
+import { CurrencyDollarIcon, ChartBarIcon, BanknotesIcon, ArrowTrendingUpIcon, ArrowTrendingDownIcon } from '@heroicons/react/24/solid';
+import { formatSmallNumber, formatLargeNumber } from './crypto-functions';
 
 export default function MarketData() {
   const [marketData, setMarketData] = useState(null);
@@ -119,12 +119,13 @@ export default function MarketData() {
   // Extract relevant data from the GeckoTerminal API response
   const poolData = marketData.data?.attributes;
   const price = poolData?.base_token_price_usd;
+  const marketCap = poolData?.market_cap_usd;
   const volume24h = poolData?.volume_usd?.h24;
   const priceChange24h = poolData?.price_change_percentage?.h24;
 
   return (
-    <section className="font-baloo font-normal cursor-default w-full h-8 bg-white/70 border-b border-gray-200 flex items-center justify-center space-x-4 md:space-x-8 lg:space-x-12">
-        <span className="hidden md:inline-block text-xs font-bold">
+    <section className="font-baloo font-normal cursor-default w-full h-8 bg-white/70 border-b border-gray-200 flex items-center justify-center space-x-5 sm:space-x-7 md:space-x-8 lg:space-x-12">
+        <span className="hidden sm:inline-flex text-xs font-bold">
           $SATO
         </span>
       {price && (
@@ -135,13 +136,23 @@ export default function MarketData() {
           </span>
         </Tooltip>
       )}
-      {volume24h && (
-        <Tooltip content="24h trading volume">
+      {marketCap && (
+        <Tooltip content="Market cap">
           <span className="text-xs flex items-center space-x-0.5">
-            <ChartBarIcon className="w-4 h-4 text-blue-600" aria-hidden="true" />
-            <span>${parseInt(volume24h).toLocaleString()}</span>
+            <BanknotesIcon className="w-4 h-4 text-emerald-600" aria-hidden="true" />
+            <span>{formatLargeNumber(marketCap)}</span>
           </span>
         </Tooltip>
+      )}
+      {volume24h && (
+        <div className="hidden sm:inline-flex">
+          <Tooltip content="24h volume">
+            <span className="text-xs flex items-center space-x-0.5">
+              <ChartBarIcon className="w-4 h-4 text-blue-600" aria-hidden="true" />
+              <span>${parseInt(volume24h).toLocaleString()}</span>
+            </span>
+          </Tooltip>
+        </div>
       )}
       {priceChange24h && (
         <Tooltip content="24h price change">
