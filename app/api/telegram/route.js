@@ -76,18 +76,19 @@ bot.command('start', (ctx) => {
 bot.command('commands', (ctx) => {
   console.log(`/commands command from ${ctx.from?.username || ctx.from?.first_name}`);
   ctx.reply(
-    '📊 *Project / Market Data*\n' +
-    '/sato – Show current project info + market data\n' +
-    '/about – Info about the project\n' +
-    '/stats – Show detailed stats (market data, price changes, volume, etc.)\n' +
-    '/links – Official links (website, socials, listings)\n' +
-    '/nft – NFT Collection info\n' +
+    '📊 *Market Data & Stats*\n' +
+    '/sato – Current price, market cap, volume & 24h changes\n' +
+    '/about – Learn about SATO\n' +
+    '/stats – Detailed market statistics and trading data\n\n' +
+    '🔗 *Quick Access*\n' +
+    '/links – All official links (website, socials, charts, exchanges)\n' +
+    '/nft – Info about our 100 Limited NFT Collection\n' +
     '/faq – Frequently asked questions\n' +
-    '/whitepaper – Link to whitepaper document\n\n' +
-    '🐶 *Dog Personality / Fun Commands*\n' +
-    '/joke – Dog-themed jokes\n' +
-    '/image – Get a random SATO image\n' +
-    '/goodboy – Sato says thanks 🐾',
+    '/whitepaper – Download our official whitepaper\n\n' +
+    '🐾 *Fun Commands*\n' +
+    '/joke – Dog-themed jokes to brighten your day\n' +
+    '/image – Random SATO artwork from our gallery\n' +
+    '/goodboy – Give SATO some love!',
     { parse_mode: 'Markdown' }
   );
 });
@@ -432,9 +433,9 @@ bot.command('goodboy', (ctx) => {
   
   const thankYouResponses = [
     "*Woof woof!* 🐕",
-    "_Wags tail_ 🐕",
+    "*Wags tail* 🐕",
     "*Happy barks* 🐕",
-    "*Ruff ruff!* _Rolls over_ 🐕"
+    "*Ruff ruff!* *Rolls over* 🐕"
   ];
 
   // Get a random thank you response
