@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function SatoNFTs() {
   return (
-    <section id="sato-nfts" className="w-full relative min-h-[600px] flex items-center justify-center px-4 py-16">
+    <section id="sato-nft-collection" className="w-full relative min-h-[600px] flex items-center justify-center px-4 py-16">
       {/* Background Image */}
       <div className="absolute inset-0 bg-black">
         <Image
