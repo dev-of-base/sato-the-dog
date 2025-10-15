@@ -182,7 +182,7 @@ export default function SatoToken() {
             />
           </a>
           <a
-            href="https://www.dextools.io/token/satobase"
+            href="https://www.dextools.io/app/en/base/pair-explorer/0xd17a8609b5d95a5f49b290c4d787949bfec5279e"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:scale-110 transition-transform duration-200 flex-shrink-0"

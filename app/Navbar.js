@@ -29,8 +29,7 @@ export default function Navbar() {
       const targetElement = document.getElementById(targetId);
       
       if (targetElement) {
-        const navbarHeight = 80; // Approximate navbar height
-        const targetPosition = targetElement.offsetTop - navbarHeight;
+        const targetPosition = targetElement.offsetTop;
         
         window.scrollTo({
           top: targetPosition,
