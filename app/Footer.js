@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { SiX, SiTelegram, SiTiktok, SiFacebook } from "@icons-pack/react-simple-icons";
+import { SiX, SiTelegram, SiTiktok, SiFacebook, SiYoutube } from "@icons-pack/react-simple-icons";
 
 export default function Footer() {
   return (
@@ -42,6 +42,15 @@ export default function Footer() {
             title="Facebook"
           >
             <SiFacebook size={36} color="default" />
+          </a>
+          <a
+            href={`https://www.youtube.com/@animationx777`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-social-button hover:scale-110 transition-transform duration-200"
+            title="Youtube"
+          >
+            <SiYoutube size={36} color="default" />
           </a>
         </div>
 
