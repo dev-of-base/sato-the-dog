@@ -29,6 +29,15 @@ export default function ShopItem() {
           moneyFormat: '%24%7B%7Bamount%7D%7D',
           options: {
             product: {
+              carousel: true, // Enable carousel for multiple images
+              contents: {
+                img: false,
+                imgWithCarousel: true, // Enable carousel navigation
+                button: true,
+                buttonWithQuantity: false,
+                title: true,
+                price: true
+              },
               styles: {
                 product: {
                   'background-color': '#FFFF00',
@@ -41,6 +50,16 @@ export default function ShopItem() {
                 button: {
                   'border-radius': '8px'
                 },
+                carousel: {
+                  'min-height': '60px' // Adjust carousel height (default is 90px)
+                },
+                'carousel-button': {
+                  'background-color': '#000000',
+                  'border-radius': '4px',
+                  ':hover': {
+                    'background-color': '#333333'
+                  }
+                }
               },
               text: { button: 'Add to cart' },
             },
