@@ -3,6 +3,7 @@ import SatoToken from "./SatoToken";
 import FAQs from "./FAQs";
 import About from "./About";
 import SatoNFTs from "./SatoNFTs";
+import ShopItem from "./Shop";
 import { 
   SiTelegram, 
   SiX, 
@@ -98,7 +99,7 @@ export default function Home() {
       {/* Gallery */}  
       <Gallery />
       {/* Store */}
-      {/* Import <ShopItem /> */}
+      <ShopItem />
       {/* SATO NFTs */}
       <SatoNFTs />
       {/* FAQs */}

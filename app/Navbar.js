@@ -42,7 +42,8 @@ export default function Navbar() {
   const menuItems = [
     { href: "#about-sato", label: "About Sato", target: "_self" },
     { href: "#sato-token", label: "$SATO", target: "_self" },
-    { href: "#gallery", label: "Sato Gallery", target: "_self" },
+    { href: "#gallery", label: "Gallery", target: "_self" },
+    { href: "#sato-store", label: "Sato Store", target: "_self" },
     { href: "#sato-nft-collection", label: "Sato NFTs", target: "_self" },
     { href: "/SATO_WhitePaper_CommunityTakeover.pdf", label: "Whitepaper", target: "_blank" },
     { href: "#faqs", label: "FAQs", target: "_self" }
