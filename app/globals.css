@@ -33,3 +33,12 @@ body {
 .social-button {
   @apply p-3 rounded-full hover:scale-105 transition-transform bg-white/50;
 }
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient 3s ease infinite;
+}
+
+.shopify-buy__carousel {
+  display: none !important;
+}
