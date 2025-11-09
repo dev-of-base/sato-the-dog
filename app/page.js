@@ -81,7 +81,7 @@ export default function Home() {
                 <SiFacebook className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9" color="default" />
             </a>
             <a
-                href={`https://www.youtube.com/@animationx777`}
+                href={`https://youtube.com/@satothedogcto`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-button"
