@@ -4,6 +4,7 @@ import FAQs from "./FAQs";
 import About from "./About";
 import SatoNFTs from "./SatoNFTs";
 import ShopItem from "./Shop";
+import BaseArena from "./BaseArena";
 import { 
   SiTelegram, 
   SiX, 
@@ -102,6 +103,8 @@ export default function Home() {
       <ShopItem />
       {/* SATO NFTs */}
       <SatoNFTs />
+      {/* The Base Arena Game */}
+      <BaseArena />
       {/* FAQs */}
       <FAQs />
       {/*  */}
