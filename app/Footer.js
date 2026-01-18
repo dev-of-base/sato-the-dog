@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Social Links */}
         <div className="flex justify-center gap-6 mb-8">
           <a
-            href="https://x.com/Satothedog"
+            href="https://x.com/SatoCtoBase"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-social-button hover:scale-110 transition-transform duration-200"
