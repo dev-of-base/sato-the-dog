@@ -132,7 +132,7 @@ SATO is a decentralized community-led meme coin born on Base\n
   \n🌐 [Website](https://satocto.com)
   \n👥 *Socials*
 └ ${[
-  `[𝕏](https://x.com/Satothedog)`,
+  `[𝕏](https://x.com/SatoCtoBase)`,
   `[TG](https://t.me/satothedogcto)`
 ].join(' • ')}
   \n📈 *Chart*
@@ -264,7 +264,7 @@ bot.command('links', async (ctx) => {
 🌐 *Website*
 └ [satocto.com](https://satocto.com)\n
 👥 *Socials*
-├ [𝕏 (Twitter)](https://x.com/Satothedog)
+├ [𝕏 (Twitter)](https://x.com/SatoCtoBase)
 ├ [Telegram](https://t.me/Satothedogcto)
 ├ [TikTok](https://www.tiktok.com/@satothedogbase)
 └ [Facebook](https://www.facebook.com/share/1Hcja2isfz/)\n
