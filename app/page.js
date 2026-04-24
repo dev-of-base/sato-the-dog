@@ -46,7 +46,7 @@ export default function Home() {
         </div>
         <div className="flex flex-row items-center justify-center gap-2 sm:gap-3 md:gap-4 my-8 md:my-12 lg:my-16 flex-wrap">
             <a
-                href={`https://x.com/SatoCtoBase`}
+                href={`https://x.com/BaseSato`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-button"
@@ -100,7 +100,7 @@ export default function Home() {
       {/* Gallery */}  
       <Gallery />
       {/* Store */}
-      <ShopItem />
+      {/* <ShopItem /> */}
       {/* SATO NFTs */}
       <SatoNFTs />
       {/* The Base Arena Game */}
