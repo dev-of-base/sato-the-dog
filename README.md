@@ -28,7 +28,7 @@ SATO is more than just a meme coin — it's a living, evolving cultural experime
 
 ## 🌐 Official Links
 
-- **Website**: [satocto.com](https://www.satocto.com)
+- **Website**: [satocto.xyz](https://www.satocto.xyz)
 - **Twitter/X**: [@SatoCtoBase](https://x.com/SatoCtoBase)
 - **Telegram**: [Satothedogcto](https://t.me/Satothedogcto)
 - **Youtube**: [@satothedogcto](https://youtube.com/@satothedogcto)
